@@ -6,8 +6,7 @@ services:
       - .:/usr/src/app
     ports:
       - "4000:4000"
-      - "35729:35729"
     user: 1000:1000
     environment:
       - JEKYLL_ENV=docker
-    command: jekyll serve -H 0.0.0.0 -w --config _config.yml,_config_docker.yml
+    command: bundle exec jekyll serve -H 0.0.0.0 -p 4000 -w --force_polling --config _config.yml,_config_docker.yml
