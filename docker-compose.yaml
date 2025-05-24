@@ -10,4 +10,4 @@ services:
     user: 1000:1000
     environment:
       - JEKYLL_ENV=docker
-    command: jekyll serve -H 0.0.0.0 -w --force_polling --livereload --config _config.yml,_config_docker.yml
+    command: jekyll serve -H 0.0.0.0 -w --config _config.yml,_config_docker.yml
