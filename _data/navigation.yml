@@ -8,21 +8,21 @@
 #      Markdown formatted page while the second is generated using JSON.
 
 main:
-  - title: "Publications"
-    url: /publications/
+  - title: "Research"
+    url: /Publications/
 
-  - title: "Talks"
-    url: /talks/    
+  #- title: "Talks"
+  #  url: /talks/    
 
   - title: "Teaching"
     url: /teaching/    
     
-  - title: "Portfolio"
-    url: /portfolio/
-        
-  - title: "Blog Posts"
-    url: /year-archive/
-    
+  - title: "KIPF(한국조세재정연구원)"
+    url: /portfolio/kipf/
+
+  - title: "KIF(한국금융연구원)"
+    url: /portfolio/kif/
+
   - title: "CV"
     url: /cv/
     
@@ -31,3 +31,6 @@ main:
     
   - title: "Guide"
     url: /markdown/
+
+  - title: "Blog"
+    url: /year-archive/
