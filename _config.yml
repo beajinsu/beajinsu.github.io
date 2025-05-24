@@ -22,7 +22,7 @@ repository               : "beajinsu/beajinsu.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "배진수(명함판).jpg"
   name             : "Jinsoo Bae" # the name of the site owner
   pronouns         : # example: "she/her"  
   bio              : "Ph.D. in Economics" # a short description of the site owner
