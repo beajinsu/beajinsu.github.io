@@ -3,6 +3,7 @@ title: "" #"KIPF Projects"
 excerpt: "Short description of portfolio item number 1<br/><img src='/images/500x300.png'>"
 collection: portfolio
 category: kipf
+share: false
 ---
 
 ### 연구보고서
