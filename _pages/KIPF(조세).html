@@ -1,7 +1,7 @@
 ---
 layout: archive
 title: "KIPF Projects"
-permalink: /portfolio/kipf/
+permalink: /portfolio/kipf/ <!--그치만 아래건 다 무시하고 kipf.md가 있으면 이 주소를 걔가 먹어버리기 때문에 그냥 연결되버림-->
 author_profile: true
 category: kipf
 ---
@@ -10,6 +10,9 @@ category: kipf
 
 
 {% for post in site.portfolio %}
-  {% include archive-single.html %}
+  {% if post.category contains "kipf" %} <!-- kipf가 있는 카테고리만 모아서서 -->
+    {% include archive-single.html %}  <!-- 각각의 아카이브로 모아주는 식으로 보여줘 -->
+  {% endif %}
 {% endfor %}
+
 

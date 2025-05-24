@@ -1,7 +1,7 @@
----
+---   <!--html은 최 외각 내용으로 뭘 보여줄지 적으면 쭉 나오는 것임-->
 layout: archive
-title: "KIF Projects"
-permalink: /portfolio/kif/
+title: "KIF Projects"  
+permalink: /portfolio/kif/ <!--그치만 아래건 다 무시하고 kif.md가 있으면 이 주소를 걔가 먹어버리기 때문에 그냥 연결되버림-->
 author_profile: true
 category: kif
 ---
@@ -10,6 +10,8 @@ category: kif
 
 
 {% for post in site.portfolio %}
-  {% include archive-single.html %}
+  {% if post.category contains "kif" %}  <!-- kif가 있는 카테고리만 모아서서 -->
+    {% include archive-single.html %} <!-- 각각의 아카이브로 모아주는 식으로 보여줘 -->
+  {% endif %}
 {% endfor %}
 
