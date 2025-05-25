@@ -17,10 +17,10 @@ main:
   - title: "Teaching"
     url: /teaching/    
     
-  - title: "KIPF(한국조세재정연구원)"
+  - title: "KIPF(조세연)"
     url: /portfolio/kipf/
 
-  - title: "KIF(한국금융연구원)"
+  - title: "KIF(금융연)"
     url: /portfolio/kif/
 
   - title: "CV"

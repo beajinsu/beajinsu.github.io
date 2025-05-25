@@ -1,12 +1,32 @@
 ---
 layout: archive
-title: "Teaching"
+title: ""  
 permalink: /teaching/
 author_profile: true
 ---
+<!-- title은 제일 처음에 뜨는 제목을 말함 --> 
+
 
 {% include base_path %}
 
 {% for post in site.teaching reversed %}
-  {% include archive-single.html %}
+  {% unless post.hidden %}  
+    {% include archive-single.html %}
+  {% endunless %}
 {% endfor %}
+<!-- % 쭉 나오는 곳에 html 형식 comment를 달면 오류가 날 수도 있음 -->
+<!-- teaching.md 에서 속성이 hidden으로 되어있으면 불러오지 않음, 껐다 켰다 하기 편함 --> 
+
+
+<h3>Teaching Assistant</h3>
+<ul>
+  <li>Graduate Micro Theory 2B (Spring 2016, Spring 2017, Spring 2018)</li>
+  <li>Principles of Macroeconomics (Fall 2016)</li>
+  <li>Graduate Microeconomics Tutor (Summer 2016)</li>
+  <li>Principles of Microeconomics (Fall 2015)</li>
+</ul>
+
+<h3>Teaching Awards</h3>
+<ul>
+  <li>L. Edwin Smart Departmental Citation for Excellence in Teaching (2017)</li>
+</ul>
