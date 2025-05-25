@@ -4,6 +4,8 @@ excerpt: "Short description of portfolio item number 1<br/><img src='/images/500
 collection: portfolio
 category: kipf
 share: false
+pagination: false
+taxonomy: false
 ---
 
 ### 연구보고서
