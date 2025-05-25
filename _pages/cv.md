@@ -41,6 +41,7 @@ Skills
   * Sub-skill 2.3
 * Skill 3
 
+<!-- 자동으로 모아서 보여주는 방식 -->
 Publications
 ======
   <ul>{% for post in site.publications reversed %}
