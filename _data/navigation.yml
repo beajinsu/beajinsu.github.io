@@ -28,6 +28,7 @@ main:
     
   # - title: "CV"
   #   url: /cv-json/
+  # cv를 마크다운 형식으로 쓰거나 cv-json 방식으로 쓰거나 둘중에 하나를 선택하도록
     
   - title: "Guide"
     url: /markdown/
