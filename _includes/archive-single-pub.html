@@ -20,7 +20,18 @@
   {% endif %}
 
   {% if post.coauthors %}
-    <div>with {{ post.coauthors }}</div>
+    <div>
+      with
+      {% for id in post.coauthors %}
+        {% assign author = site.data.authors[id] %}
+        {% if author.url %}
+          <a href="{{ author.url }}" target="_blank" rel="noopener">{{ author.name }}</a>
+        {% else %}
+          {{ author.name }}
+        {% endif %}
+        {% unless forloop.last %} and {% endunless %}
+      {% endfor %}
+    </div>
   {% endif %}
 
 {% if post.excerpt and site.read_more != 'enabled' %}
