@@ -3,9 +3,10 @@ title: "Neighborhood Effects of Buy-to-Rent and Build-to Rent Public Housing"
 collection: publications
 category: manuscripts
 permalink: /CEP
-excerpt: 'This paper is about the number 1. The number 2 is left for future work.'
-date: 2035-10-01
-venue: 'Journal 1'
+excerpt: ""
+date: 2030-01-01 d
+venue: 'Contemporary Economic Policy'
+coauthors: "Changsu Ko and Heepyung Cho" 
 slidesurl: 'http://academicpages.github.io/files/slides1.pdf'
 paperurl: 'http://academicpages.github.io/files/paper1.pdf'
 bibtexurl: 'http://academicpages.github.io/files/bibtex1.bib'

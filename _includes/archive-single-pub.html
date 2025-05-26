@@ -3,22 +3,34 @@
 {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
 
 <div class="pub__item">
-  <p class="archive__item-title" itemprop="headline">
+  <h2 class="archive__item-title" itemprop="headline">
     {% if post.link %}
       <a href="{{ post.link }}">{{ title }}</a>
     {% else %}
-      {{ title }}
+      <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ title }}</a>
     {% endif %}
-  </p>
+  </h2>
 
-  {% if post.venue or post.date %}
-    <p>
-      {% if post.venue %}<em>{{ post.venue }}</em>{% endif %}
-      {% if post.date %}, {{ post.date | date: "%Y" }}{% endif %}
-    </p>
+  {% if post.venue and post.date %}
+    <div><em>{{ post.venue }}</em>, {{ post.date | date: "%Y" }}</div>
+  {% elsif post.venue %}
+    <div><em>{{ post.venue }}</em></div>
+  {% elsif post.date %}
+    <div>{{ post.date | date: "%Y" }}</div>
   {% endif %}
 
   {% if post.coauthors %}
-    <p><small>with {{ post.coauthors }}</small></p>
+    <div>with {{ post.coauthors }}</div>
   {% endif %}
+
+{% if post.excerpt and site.read_more != 'enabled' %}
+  <p class="archive__item-excerpt" itemprop="description">
+    {{ post.excerpt | markdownify }}
+  </p>
+{% elsif post.excerpt and site.read_more == 'enabled' %}
+  <p class="archive__item-excerpt" itemprop="description">
+    {{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}
+    <strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong>
+  </p>
+{% endif %}
 </div>
