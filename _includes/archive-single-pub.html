@@ -1,0 +1,24 @@
+{% include base_path %}
+
+{% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+
+<div class="pub__item">
+  <p class="archive__item-title" itemprop="headline">
+    {% if post.link %}
+      <a href="{{ post.link }}">{{ title }}</a>
+    {% else %}
+      {{ title }}
+    {% endif %}
+  </p>
+
+  {% if post.venue or post.date %}
+    <p>
+      {% if post.venue %}<em>{{ post.venue }}</em>{% endif %}
+      {% if post.date %}, {{ post.date | date: "%Y" }}{% endif %}
+    </p>
+  {% endif %}
+
+  {% if post.coauthors %}
+    <p><small>with {{ post.coauthors }}</small></p>
+  {% endif %}
+</div>
