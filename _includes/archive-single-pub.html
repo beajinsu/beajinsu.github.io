@@ -1,0 +1,47 @@
+{% include base_path %}
+
+{% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+
+<div class="pub__item">
+  <h2 class="archive__item-title" itemprop="headline">
+    {% if post.link %}
+      <a href="{{ post.link }}">{{ title }}</a>
+    {% else %}
+      <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ title }}</a>
+    {% endif %}
+  </h2>
+
+  {% if post.venue and post.date %}
+    <div><em>{{ post.venue }}</em>, {{ post.date | date: "%Y" }}</div>
+  {% elsif post.venue %}
+    <div><em>{{ post.venue }}</em></div>
+  {% elsif post.date %}
+    <div>{{ post.date | date: "%Y" }}</div>
+  {% endif %}
+
+  {% if post.coauthors %}
+    <div>
+      with
+      {% for id in post.coauthors %}
+        {% assign author = site.data.authors[id] %}
+        {% if author.url %}
+          <a href="{{ author.url }}" target="_blank" rel="noopener">{{ author.name }}</a>
+        {% else %}
+          {{ author.name }}
+        {% endif %}
+        {% unless forloop.last %} and {% endunless %}
+      {% endfor %}
+    </div>
+  {% endif %}
+
+{% if post.excerpt and site.read_more != 'enabled' %}
+  <p class="archive__item-excerpt" itemprop="description">
+    {{ post.excerpt | markdownify }}
+  </p>
+{% elsif post.excerpt and site.read_more == 'enabled' %}
+  <p class="archive__item-excerpt" itemprop="description">
+    {{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}
+    <strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong>
+  </p>
+{% endif %}
+</div>
