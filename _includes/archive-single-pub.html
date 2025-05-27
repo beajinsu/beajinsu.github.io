@@ -3,7 +3,7 @@
 {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
 
 <div class="pub__item">
-  <h2 class="archive__item-title" itemprop="headline">
+  <h2 class="archive__item-title" itemprop="headline" style="margin-top: 1.0rem; margin-bottom: 0.23rem;">
     {% if post.link %}
       <a href="{{ post.link }}">{{ title }}</a>
     {% else %}
@@ -12,9 +12,9 @@
   </h2>
 
   {% if post.venue and post.date %}
-    <div><em>{{ post.venue }}</em>, {{ post.date | date: "%Y" }}</div>
+    <div><em style="font-size: 1.0rem;">{{ post.venue }}</em>, {{ post.date | date: "%Y" }}</div>
   {% elsif post.venue %}
-    <div><em>{{ post.venue }}</em></div>
+    <div><em style="font-size: 1.0rem;">{{ post.venue }}</em></div>
   {% elsif post.date %}
     <div>{{ post.date | date: "%Y" }}</div>
   {% endif %}
