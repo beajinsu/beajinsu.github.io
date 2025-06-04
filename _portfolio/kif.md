@@ -16,6 +16,6 @@ taxonomy: false # 이와 마찬가지, page__taxonomy.html 을 조건부로 쓰�
 ### 정책보고서 (수탁과제)
 - 청년층 금융여건 분석 및 개선방향(2025, 금융위), 공동연구자  
 - 상호저축은행 특별계정 정리방안 연구용역(2025, 예보), 공동연구자  
-- 녹색국채 발행기반 연구(2025, 기재부), 연구책임자
+- 녹색국채 발행기반 연구(2025, 기재부), 연구책임자, [참고자료모음](/_portfolio/녹색국채용역.md)
 
 <!--  This is an item in your portfolio. It can be have images or nice text. If you name the file .md, it will be parsed as markdown. If you name the file .html, it will be parsed as HTML. -->
