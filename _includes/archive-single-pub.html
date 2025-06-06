@@ -11,12 +11,36 @@
     {% endif %}
   </h3>
 
-  {% if post.venue and post.date %}
-    <div><em style="font-size: 1.0rem;">{{ post.venue }}</em>, {{ post.date | date: "%Y" }}</div>
-  {% elsif post.venue %}
-    <div><em style="font-size: 1.0rem;">{{ post.venue }}</em></div>
-  {% elsif post.date %}
-    <div>{{ post.date | date: "%Y" }}</div>
+  {%- comment -%}
+  ──────────────── 날짜 문자열 결정 (show_date 변수) ────────────────
+    • category 가 manuscripts, other_pubs, books 인 경우에만 연도 계산
+    • 그 외 카테고리에서는 show_date 를 빈값("")으로 두어 날짜 안 보이도록
+    • display_date 가 있으면 그 값으로
+    • 없으면 date 의 연도(%Y)로
+  ────────────────────────────────────────────────
+  {%- endcomment -%}
+  {% if post.category == "manuscripts" 
+        or post.category == "other_pubs" 
+        or post.category == "books" %}
+    {% if post.display_date %}
+      {% assign show_date = post.display_date %}
+    {% elsif post.date %}
+      {% assign show_date = post.date | date:"%Y" %}
+    {% endif %}
+  {% else %}
+    {% assign show_date = "" %}
+  {% endif %}
+
+  <!-- venue + 날짜 (show_date 가 비어있으면 날짜 콤마도 생략) -->
+  {% if post.venue %}
+    <div>
+      <em style="font-size:1rem;">{{ post.venue }}</em>
+      {% if show_date %}
+        , {{ show_date }}
+      {% endif %}
+    </div>
+  {% elsif show_date %}
+    <div>{{ show_date }}</div>
   {% endif %}
 
   {% if post.coauthors %}
@@ -31,6 +55,13 @@
         {% endif %}
         {% unless forloop.last %} and {% endunless %}
       {% endfor %}
+    </div>
+  {% endif %}
+
+  <!-- extra_info 출력 -->
+  {% if post.extra_info %}
+    <div class="pub__extra" style="margin-top:0.4rem;">
+      {{ post.extra_info | markdownify | remove:"<p>" | remove:"</p>" }}
     </div>
   {% endif %}
 

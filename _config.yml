@@ -86,6 +86,10 @@ publication_category:
     title: 'Other Publications'
   working_papers:
     title: 'Working Papers'
+  works_in_progress:
+    title: 'Works in Progress'
+  mimeo:
+    title: 'Mimeo'
 
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"

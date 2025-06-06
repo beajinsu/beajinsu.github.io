@@ -4,9 +4,10 @@ collection: publications
 category: manuscripts
 permalink: /CEP
 excerpt: ""
-date: 2030-01-01 d
+date: 2089-12-31           
+display_date: "Forthcoming" #date는 날짜만 받아들이기 때문에 따른 표현이 필요할 경우 입력. 단 순서는 date를 여전히 활용함.
 venue: 'Contemporary Economic Policy'
-coauthors: ["Changsu Ko", "Heepyung Cho"]
+coauthors: ["Changsu Ko", "Heepyung Cho"] # authors.yml 여기에 입력하도록
 share: false
 pagination: false
 paperurls: # 하나만 필요하면 하나만, 여러개가 필요하면 계속 반복하면 됨

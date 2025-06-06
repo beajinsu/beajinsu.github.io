@@ -34,13 +34,49 @@ layout: default
           <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ page.modified | date: "%Y-%m-%d" }}">{{ page.modified | date: "%B %d, %Y" }}</time></p>
         {% endif %}
         
-        {% if page.collection == 'teaching' %}
-          <p> {{ page.type }}, <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
-        {% elsif page.venue and page.date %}
-          <p>Published in <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
-        {% elsif page.date %}
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
-        {% endif %}    
+        {%- comment -%}
+        ─────────────────────────────────────────
+        ① show_date 계산
+          manuscripts · other_pubs · books  → 날짜 표시
+          나머지 카테고리                 → 날짜 숨김
+        ─────────────────────────────────────────
+        {%- endcomment -%}
+        {% assign show_date = "" %}
+        {% if page.collection == "publications" %}
+          {% if page.category == "manuscripts"
+                or page.category == "other_pubs"
+                or page.category == "books" %}
+            {% if page.display_date %}
+              {% assign show_date = page.display_date %}
+            {% elsif page.date %}
+              {% assign show_date = page.date | date:"%Y" %}
+            {% endif %}
+          {% endif %}
+        {% endif %}
+
+        {%- comment -%}
+        ─────────────────────────────────────────
+        ② venue + 날짜 출력
+        ─────────────────────────────────────────
+        {%- endcomment -%}
+        {% if page.collection == "teaching" %}
+          <p>{{ page.type }}, <i>{{ page.venue }}</i>, {{ page.date | date:"%Y" }}</p>
+
+        {% elsif page.venue %}
+          <p>
+            {% if show_date != "" %}
+              Published in <i>{{ page.venue }}</i>, {{ show_date }}
+            {% else %}
+              <i>{{ page.venue }}</i>
+            {% endif %}
+          </p>
+
+        {% elsif show_date != "" %}
+          <p class="page__date">
+            <strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i></strong>
+            {{ show_date }}
+          </p>
+        {% endif %}
         </header>
       {% endunless %}
 
