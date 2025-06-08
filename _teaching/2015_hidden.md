@@ -10,7 +10,7 @@ hidden: true
 share: false
 ---
 
-This is a description of a teaching experience. You can use markdown like any other post.
+예제를 위해서 숨겨둔 파일임 위에 hidden 속성을 끄면 보이게 됨.
 
 Heading 1
 ======

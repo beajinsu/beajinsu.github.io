@@ -32,5 +32,24 @@ author_profile: true
   {% endfor %}
 {% endif %}
 
+{% capture extra_md %}
+## Award & Research Grant
+---
+* 2023년도 *경제학연구* 우수논문상 (한국경제학회) — (총 300 만원, 2024)
+* 제 10회 재정포럼 현안분석 우수 원고상 — (총 100 만원, 2023)
+* Burton-Abrams Dissertation in Economics Award — ($1,200, 2019)
+* NSF Doctoral Dissertation Improvement Awards — ($11,981, 2019)
+* Alumni Grants for Graduate Research and Scholarship — ($2,940, 2019)
+* JMCB Grant for Graduate Student Research — ($2,500, 2019)
+* JMCB Grant for Graduate Student Research — ($1,848, 2017)
+* University Fellowship, The Ohio State University — (2014–2015)
 
+## Professional Experience
+---
+* Graduate Research Assistant for Prof.John Kagel, *The Ohio State University*, 2018–2020  
+* Junior Researcher, *Korea Electric Power Corporation*, Long-Term Electricity Demand Forecasting(Project leader – Joon Y. Park), 2014  
+* Research Assistant, *Social Science Korea*, 2012–2013
+{% endcapture %}
+
+{{ extra_md | markdownify }}
 
