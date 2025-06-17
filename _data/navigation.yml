@@ -34,4 +34,5 @@ main:
   #  url: /markdown/
 
   - title: "Blog"
-    url: /year-archive/
+    url: /blog/    # /를 앞에 눌러주면 root에서 가는 절대경로이고 /를 누르지 않으면 상대경로가 됨. 
+  # url: /year-archive/  원래 default 형식으로 들어오려면 이걸로 갈 수 있음. 

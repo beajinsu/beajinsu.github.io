@@ -1,0 +1,34 @@
+---
+permalink: /investment/
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>투자 페이지</title>
+</head>
+<body>
+  <h1>투자 페이지</h1>
+  <p>주식 배당수익률 계산기, 김치프리미엄 계산기 등을 여기에 추가할 예정입니다.</p>
+
+  <h3>배당수익률 간단 계산기</h3>
+  <p>배당금 (₩): <input type="number" id="dividend" value="5000"></p>
+  <p>주가 (₩): <input type="number" id="price" value="100000"></p>
+  <button onclick="calculate()">계산</button>
+  <p id="result"></p>
+
+  <script>
+    function calculate() {
+      const dividend = parseFloat(document.getElementById('dividend').value);
+      const price = parseFloat(document.getElementById('price').value);
+      if (price > 0) {
+        const yieldValue = (dividend / price * 100).toFixed(2);
+        document.getElementById('result').innerText = `배당수익률: ${yieldValue}%`;
+      } else {
+        document.getElementById('result').innerText = "주가를 입력하세요.";
+      }
+    }
+  </script>
+</body>
+</html>
