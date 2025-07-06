@@ -8,3 +8,6 @@ permalink: /research-data/
 
 - 📁 데이터셋 A (예정)
 - 📁 데이터셋 B (예정)
+
+일단 흥미로운 웹페이지 등을 적어 두고, 나중에 폴더 등으로 묶을 예정.
+[블록체인 익스플로러](https://www.blockchain.com/explorer)
