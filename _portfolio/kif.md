@@ -13,6 +13,8 @@ taxonomy: false # 이와 마찬가지, page__taxonomy.html 을 조건부로 쓰�
 ### 논단
 - [신용카드 수수료 규제의 해외사례와 정책적 시사점](https://www.kif.re.kr/kif4/publication/pub_detail?mid=20&nid=190&sid=188&vid=7367&cno=344639&pn=1)
 
+- [녹색국채 발행의 글로벌 동향과 시사점](https://www.kif.re.kr/kif4/publication/pub_detail?mid=20&nid=189&sid=188&vid=7480&cno=350585&pn=1)
+
 ### 정책보고서 (수탁과제)
 - 청년층 금융여건 분석 및 개선방향(2025, 금융위), 공동연구자  
 - 상호저축은행 특별계정 정리방안 연구용역(2025, 예보), 공동연구자  
