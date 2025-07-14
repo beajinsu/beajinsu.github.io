@@ -32,6 +32,5 @@ permalink: /travel2/
 🗺 **지도를 스크롤하여 탐색하고, 원하는 마커를 클릭해보세요!**
 (마커를 클릭하면 Polarsteps, Journey, FindPenguins 등의 링크로 이동합니다)
 
-
 ![alt text](image.png)
 ![alt text](image-1.png)
