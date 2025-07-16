@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jinsoo Bae - 경제학 연구자</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+            padding: 2rem 0;
+        }
+
+        .hero {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #5a6c7d;
+        }
+
+        /* Section Styles */
+        .section {
+            display: none;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .section.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #34495e;
+        }
+
+        .section h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-card .icon {
+            font-size: 1.5rem;
+        }
+
+        .section-card p {
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+        }
+
+        /* Paper/Project Item */
+        .paper-item, .project-item {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #667eea;
+        }
+
+        .paper-title, .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .paper-journal, .project-institution {
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .paper-authors, .project-period {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .paper-abstract, .project-description {
+            color: #5a6c7d;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .paper-links, .project-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .link-button {
+            background: #667eea;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+
+        .link-button:hover {
+            background: #764ba2;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 1.5rem;
+            width: 15px;
+            height: 15px;
+            background: #667eea;
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+        }
+
+        .timeline-date {
+            font-size: 1rem;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content {
+            color: #5a6c7d;
+            line-height: 1.6;
+        }
+
+        /* Blog */
+        .blog-post {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid #667eea;
+        }
+
+        .blog-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-date {
+            color: #667eea;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-content {
+            color: #5a6c7d;
+            line-height: 1.8;
+        }
+
+        /* CV Grid */
+        .cv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .cv-section {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        .cv-section h4 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .cv-item {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .cv-item:last-child {
+            border-bottom: none;
+        }
+
+        .cv-item-title {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .cv-item-detail {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-info a:hover {
+            color: #764ba2;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                padding-left: 2rem;
+            }
+
+            .timeline::before {
+                left: 0.5rem;
+            }
+
+            .timeline-item::before {
+                left: -2rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .section-card:nth-child(1) { animation-delay: 0.1s; }
+        .section-card:nth-child(2) { animation-delay: 0.2s; }
+        .section-card:nth-child(3) { animation-delay: 0.3s; }
+        .section-card:nth-child(4) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo" onclick="showSection('home')">Jinsoo Bae</a>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showSection('home')">Home</a></li>
+                <li><a href="#" onclick="showSection('research')">Research</a></li>
+                <li><a href="#" onclick="showSection('projects')">Projects</a></li>
+                <li><a href="#" onclick="showSection('blog')">Blog</a></li>
+                <li><a href="#" onclick="showSection('cv')">CV</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <h1>배진수 Jinsoo Bae</h1>
+                <p class="subtitle">경제학 연구자 • 한국금융연구원 부연구위원</p>
+                <p class="description">
+                    실험경제학, 경매이론, 산업조직론을 전공하며, 예산 제약 하에서의 최적 경매 설계와 
+                    공동 입찰의 친경쟁적 효과에 대한 연구를 수행하고 있습니다. 
+                    이론적 연구와 실증적 증거를 통해 경제 정책과 금융 시장의 효율성을 높이는 방안을 모색합니다.
+                </p>
+            </div>
+
+            <div class="content-grid">
+                <div class="section-card" onclick="showSection('research')">
+                    <h2><span class="icon">📊</span> Research Papers</h2>
+                    <p>최신 연구 논문과 학술 발표 자료</p>
+                    <div style="margin-top: 1rem;">
+                        <div style="font-weight: 600; color: #2c3e50; margin-bottom: 0.3rem;">최근 논문</div>
+                        <div style="color: #7f8c8d; font-size: 0.9rem;">Optimal Auctions under Budget Constraints</div>
+                        <div style="color: #667eea; font-size: 0.8rem;">Journal of Economic Theory • 2024</div>
+                    </div>
+                </div>
+
+                <div class="section-card" onclick="showSection('projects')">
+                    <h2><span class="icon">🔬</span> Research Projects</h2>
+                    <p>진행 중인 연구 프로젝트와 협업</p>
+                    <div style="margin-top: 1rem;">
+                        <div style="font-weight: 600; color: #2c3e50; margin-bottom: 0.3rem;">현재 진행 중</div>
+                        <div style="color: #7f8c8d; font-size: 0.9rem;">소비자금융 행동 분석</div>
+                        <div style="color: #667eea; font-size: 0.8rem;">한국금융연구원 • 2024</div>
+                    </div>
+                </div>
+
+                <div class="section-card" onclick="showSection('cv')">
+                    <h2><span class="icon">🏢</span> Career</h2>
+                    <p>학술 및 연구 경력</p>
+                    <div style="margin-top: 1rem;">
+                        <div style="font-weight: 600; color: #2c3e50; margin-bottom: 0.3rem;">현재</div>
+                        <div style="color: #7f8c8d; font-size: 0.9rem;">한국금융연구원 부연구위원</div>
+                        <div style="color: #667eea; font-size: 0.8rem;">2024 - 현재</div>
+                    </div>
+                </div>
+
+                <div class="section-card" onclick="showSection('blog')">
+                    <h2><span class="icon">✍️</span> Blog</h2>
+                    <p>연구 아이디어와 경제 이슈에 대한 생각</p>
+                    <div style="margin-top: 1rem;">
+                        <div style="font-weight: 600; color: #2c3e50; margin-bottom: 0.3rem;">최근 포스트</div>
+                        <div style="color: #7f8c8d; font-size: 0.9rem;">경매 이론의 실무 적용 가능성</div>
+                        <div style="color: #667eea; font-size: 0.8rem;">2024.07.10</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Section -->
+        <section id="research" class="section">
+            <h2><span class="icon">📊</span> Research Papers</h2>
+            
+            <h3>Published Papers</h3>
+            
+            <div class="paper-item">
+                <div class="paper-title">Optimal Auctions under Budget Constraints: A Theoretical Framework</div>
+                <div class="paper-journal">Journal of Economic Theory, 2024</div>
+                <div class="paper-authors">Jinsoo Bae</div>
+                <div class="paper-abstract">
+                    이 연구는 예산 제약 하에서 최적 경매 설계에 대한 새로운 이론적 틀을 제시합니다. 
+                    기존의 표준 경매와 달리 비례 경매(proportional auction)가 특정 조건에서 더 높은 수익을 
+                    창출할 수 있음을 보여줍니다. 이론적 분석과 더불어 실험적 증거를 통해 이를 뒷받침합니다.
+                </div>
+                <div class="paper-links">
+                    <a href="#" class="link-button">PDF</a>
+                    <a href="#" class="link-button">DOI</a>
+                    <a href="#" class="link-button">BibTeX</a>
+                </div>
+            </div>
+
+            <div class="paper-item">
+                <div class="paper-title">Pro-competitive Effects of Joint Bidding in Asymmetric Auctions</div>
+                <div class="paper-journal">Journal of Industrial Organization, 2023</div>
+                <div class="paper-authors">Jinsoo Bae, Co-author Name</div>
+                <div class="paper-abstract">
+                    입찰자들 간의 강한 비대칭성이 존재하는 환경에서 공동 입찰이 반경쟁적 우려를 상쇄하는 
+                    친경쟁적 효과를 가질 수 있음을 실증적으로 보여줍니다. 특히 약한 입찰자들의 공동 입찰이 
+                    경쟁 강도를 높여 전체적인 효율성을 개선할 수 있음을 논증합니다.
+                </div>
+                <div class="paper-links">
+                    <a href="#" class="link-button">PDF</a>
+                    <a href="#" class="link-button">DOI</a>
+                    <a href="#" class="link-button">Replication Data</a>
+                </div>
+            </div>
+
+            <div class="paper-item">
+                <div class="paper-title">Experimental Evidence on Proportional Auctions</div>
+                <div class="paper-journal">Experimental Economics, 2023</div>
+                <div class="paper-authors">Jinsoo Bae, Lab Partner</div>
+                <div class="paper-abstract">
+                    실험실 환경에서 비례 경매의 성과를 표준 경매와 비교 분석한 연구입니다. 
+                    예산 제약이 있는 상황에서 비례 경매가 더 높은 효율성과 수익을 달성할 수 있음을 
+                    실험적으로 검증하였습니다.
+                </div>
+                <div class="paper-links">
+                    <a href="#" class="link-button">PDF</a>
+                    <a href="#" class="link-button">Experimental Instructions</a>
+                    <a href="#" class="link-button">Data</a>
+                </div>
+            </div>
+
+            <h3>Working Papers</h3>
+            
+            <div class="paper-item">
+                <div class="paper-title">Behavioral Biases in Consumer Finance: Evidence from Credit Card Usage</div>
+                <div class="paper-journal">Working Paper, 2024</div>
+                <div class="paper-authors">Jinsoo Bae, Research Team</div>
+                <div class="paper-abstract">
+                    신용카드 사용 패턴을 통해 소비자금융에서 나타나는 행동경제학적 편향을 분석합니다. 
+                    특히 과도한 신용카드 사용과 관련된 인지적 편향이 금융 의사결정에 미치는 영향을 
+                    실증적으로 검토합니다.
+                </div>
+                <div class="paper-links">
+                    <a href="#" class="link-button">Draft PDF</a>
+                    <a href="#" class="link-button">Slides</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <h2><span class="icon">🔬</span> Research Projects</h2>
+            
+            <h3>Current Projects</h3>
+            
+            <div class="project-item">
+                <div class="project-title">소비자금융 행동 분석 연구</div>
+                <div class="project-institution">한국금융연구원</div>
+                <div class="project-period">2024년 3월 - 현재</div>
+                <div class="project-description">
+                    금융소비자의 신용카드, 대출, 투자 행동을 분석하여 합리적 의사결정을 저해하는 요인들을 
+                    규명하고 정책적 시사점을 도출하는 연구입니다. 행동경제학적 접근을 통해 금융소비자 
+                    보호 방안을 제시합니다.
+                </div>
+                <div class="project-links">
+                    <a href="#" class="link-button">프로젝트 상세</a>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">녹색국채 발행방안 연구</div>
+                <div class="project-institution">한국금융연구원 (수탁과제)</div>
+                <div class="project-period">2024년 1월 - 2024년 12월</div>
+                <div class="project-description">
+                    ESG 투자 확산에 따른 녹색국채 발행 방안을 연구합니다. 해외 사례 분석과 국내 
+                    금융시장 특성을 고려한 최적 발행 구조를 제안하며, 경매 이론을 활용한 발행 메커니즘 
+                    설계를 담당하고 있습니다.
+                </div>
+                <div class="project-links">
+                    <a href="#" class="link-button">중간보고서</a>
+                    <a href="#" class="link-button">발표자료</a>
+                </div>
+            </div>
+
+            <h3>Completed Projects</h3>
+            
+            <div class="project-item">
+                <div class="project-title">공공조달정책 효과 분석</div>
+                <div class="project-institution">한국조세재정연구원</div>
+                <div class="project-period">2022년 - 2023년</div>
+                <div class="project-description">
+                    국가계약법 개정에 따른 공공조달 시장의 변화를 분석하고, 경매 이론을 바탕으로 
+                    조달 효율성 제고 방안을 제시했습니다. 특히 중소기업 참여 확대와 공정경쟁 촉진을 
+                    위한 제도 개선안을 연구했습니다.
+                </div>
+                <div class="project-links">
+                    <a href="#" class="link-button">최종보고서</a>
+                    <a href="#" class="link-button">정책제안서</a>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">공공기관 고객만족도 조사 개선방안</div>
+                <div class="project-institution">한국조세재정연구원</div>
+                <div class="project-period">2021년 - 2022년</div>
+                <div class="project-description">
+                    공공기관 고객만족도 조사의 신뢰성과 유효성을 제고하기 위한 방법론을 개발했습니다. 
+                    설문 설계, 표본 추출, 결과 분석 등 전 과정에 걸쳐 통계적 엄밀성을 확보하는 
+                    방안을 제시했습니다.
+                </div>
+                <div class="project-links">
+                    <a href="#" class="link-button">연구보고서</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="section">
+            <h2><span class="icon">✍️</span> Blog</h2>
+            
+            <div class="blog-post">
+                <div class="blog-title">경매 이론의 실무 적용 가능성</div>
+                <div class="blog-date">2024년 7월 10일</div>
+                <div class="blog-content">
+                    <p>이론적 연구에서 도출된 최적 경매 설계가 실제 공공조달이나 자산 매각에서 어떻게 적용될 수 있는지에 대한 고찰입니다.</p>
+                    
+                    <p>최근 연구를 통해 예산 제약 하에서는 전통적인 1등가 경매나 2등가 경매보다 비례 경매가 더 효율적일 수 있음을 보였습니다. 하지만 이론과 실무 사이에는 여전히 큰 간극이 존재합니다.</p>
+                    
+                    <p>실무에서 고려해야 할 요소들:</p>
+                    <ul>
+                        <li>법적 제약과 규제 환경</li>
+                        <li>이해관계자들의 수용성</li>
+                        <li>시스템 구축 및 운영 비용</li>
+                        <li>기존 관행과의 호환성</li>
+                    </ul>
+                    
+                    <p>향후 연구에서는 이러한 실무적 제약을 고려한 차선의 경매 설계 방안을 모색해볼 예정입니다.</p>
+                </div>
+            </div>
+
+            <div class="blog-post">
+                <div class="blog-title">실험경제학의 정책적 함의</div>
+                <div class="blog-date">2024년 7월 5일</div>
+                <div class="blog-content">
+                    <p>실험실 환경에서 관찰된 행동 패턴이 실제 정책 설계에 어떤 시사점을 제공하는지 분석해보겠습니다.</p>
+                    
+                    <p>실험경제학은 통제된 환경에서 경제 이론을 검증하고 인간 행동의 규칙성을 발견할 수 있는 강력한 도구입니다. 특히 정책 실험이 어려운 상황에서 사전 검증의 역할을 할 수 있습니다.</p>
+                    
+                    <p>최근 수행한 비례 경매 실험에서 발견한 흥미로운 점들:</p>
+                    <ul>
+                        <li>참가자들이 예산 제약을 명확히 인지할 때 더 전략적으로 행동</li>
+                        <li>학습 효과가 이론 예측과 일치하는 방향으로 나타남</li>
+                        <li>위험 회피 성향이 입찰 전략에 미치는 영향</li>
+                    </ul>
+                    
+                    <p>이러한 발견은 실제 정책 설계에서 행동적 요소를 고려해야 함을 시사합니다.</p>
+                </div>
+            </div>
+
+            <div class="blog-post">
+                <div class="blog-title">금융소비자 보호의 경제학적 접근</div>
+                <div class="blog-date">2024년 6월 28일</div>
+                <div class="blog-content">
+                    <p>금융소비자 보호 정책을 경제학적 관점에서 분석하고, 효과적인 정책 방안을 모색해보겠습니다.</p>
+                    
+                    <p>금융소비자 보호는 단순한 규제가 아니라 시장 실패를 교정하고 효율성을 높이는 경제 정책의 일환으로 접근해야 합니다. 특히 다음과 같은 측면에서 경제학적 분석이 필요합니다:</p>
+                    
+                    <ul>
+                        <li>정보 비대칭성으로 인한 시장 실패</li>
+                        <li>행동경제학적 편향과 비합리적 의사결정</li>
+                        <li>규제 비용과 효과의 균형</li>
+                    </ul>
+                    
+                    <p>현재 진행 중인 연구에서는 신용카드 사용 데이터를 활용하여 소비자들의 실제 행동 패턴을 분석하고 있습니다.</p>
+                </div>
+            </div>
+
+            <div class="blog-post">
+                <div class="blog-title">ESG와 금융시장: 녹색국채를 중심으로</div>
+                <div class="blog-date">2024년 6월 15일</div>
+                <div class="blog-content">
+                    <p>ESG 투자 확산이 금융시장에 미치는 영향을 녹색국채 발행을 중심으로 살펴보겠습니다.</p>
+                    
+                    <p>녹색국채는 단순한 자금 조달 수단을 넘어 ESG 투자 생태계의 핵심 인프라 역할을 합니다. 경매 이론의 관점에서 볼 때, 녹색국채 발행은 다음과 같은 특징을 가집니다:</p>
+                    
+                    <ul>
+                        <li>일반 국채 대비 상대적으로 제한된 투자자 풀</li>
+                        <li>ESG 프리미엄으로 인한 수요 증가</li>
+                        <li>투명성과 추적가능성에 대한 높은 요구</li>
+                    </ul>
+                    
+                    <p>이러한 특성을 고려한 최적 발행 전략이 필요합니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CV Section -->
+        <section id="cv" class="section">
+            <h2><span class="icon">📄</span> Curriculum Vitae</h2>
+            
+            <div class="cv-grid">
+                <div class="cv-section">
+                    <h4>Education</h4>
+                    <div class="cv-item">
+                        <div class="cv-item-title">Ph.D. in Economics</div>
+                        <div class="cv-item-detail">University Name, 2015-2020</div>
+                        <div class="cv-item-detail">Dissertation: "Optimal Auction Design under Budget Constraints"</div>
+                    </div>
+                    <div class="cv-item">
+                        <div class="cv-item-title">M.A. in Economics</div>
+                        <div class="cv-item-detail">University Name, 2013-2015</div>
+                    </div>
+                    <div class="cv-item">
+                        <div class="cv-item-title">B.A. in Economics</div>
+                        <div class="cv-item-detail">University Name, 2009-2013</div>
+                    </div>
+                </div>
+
+                <div class="cv-section">
+                    <h4>Professional Experience</h4>
+                    <div class="cv-item">
+                        <div class="cv-item-title">부연구위원</div>
+                        <div class="cv-item-detail">한국금융연구원, 2024-현재</div>
+                        <div class="cv-item-detail">금융소비자 연구실</div>
+                    </div>
+                    <div class="cv-item">
+                        <div class="cv-item-title">연구위원</div>
+                        <div class="cv-item-detail">한국조세재정연구원, 2020-2024</div>
+                        <div class="cv-item-detail">재정제도팀장 (2023-2024)</div>
+                    </div>
+                </div>
+
+                <div class="cv-section">
+                    <h4>Research Interests</h4>
+                    <div class="cv-item">
+                        <div class="cv-item-title">Experimental Economics</div>
+                        <div class="cv-item-detail">실험실 환경에서의 경제 행동 분석</div>
+                    </div>
+                    <div class="cv-item">
+                        <div class="cv-item-title">Auction Theory</div>
+                        <div class="cv-item-detail">최적 경매 설계 및 메커니즘 디자인</div>
+                    </div>
+                    <div class="cv-item">
+                        <div class="cv-item-title">Industrial Organization</div>
+                        <div class="cv-item-detail">시장 구조와 기업 행동 분석</div>
+                    </div>
+                </div>
+
+                <div class="cv-section">
+                    <h4>Publications</h4>
+                    <div class="cv-item">
+                        <div class="cv-item-title">Journal Articles</div>
+                        <div class="cv-item-detail">3편 (SSCI 저널 2편 포함)</div>
+                    </div>
+                    <div class="cv-item">
+                        <div class="cv-item-title">Working Papers</div>
+                        <div class="cv-item-detail">2편 (심사 중)</div>
+                    </div>
+                    <div class="cv-item">
+                        <div class="cv-item-title">Policy Reports</div>
+                        <div class="cv-item-detail">15편 (정책연구보고서)</div>
+                    </div>
+                </div>
+
+                <div class="cv-section">
+                    <h4>Conference Presentations</h4>
+                    <div class="cv-item">
+                        <div class="cv-item-title">Korean Economic Association Annual Meeting</div>
+                        <div class="cv-item-detail">2024, 2023, 2022</div>
+                    </div>
+                    <div class="cv-item">
+                        <div class="cv-item-title">Asian Meeting of Econometric Society</div>
+                        <div class="cv-item-detail">2023</div>
+                    </div>
+                    <div class="cv-item">
+                        <div class="cv-item-title">Korean Finance Association</div>
+                        <div class="cv-item-detail">2024</div>
+                    </div>
+                </div>
+
+                <div class="cv-section">
+                    <h4>Skills & Languages</h4>
+                    <div class="cv-item">
+                        <div class="cv-item-title">Programming</div>
+                        <div class="cv-item-detail">Python, R, Stata, MATLAB</div>
+                    </div>
+                    <div class="cv-item">
+                        <div class="cv-item-title">Languages</div>
+                        <div class="cv-item-detail">한국어 (Native), English (Fluent)</div>
+                    </div>
+                    <div class="cv-item">
+                        <div class="cv-item-title">Software</div>
+                        <div class="cv-item-detail">z-Tree, oTree, LaTeX</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <h3>Career Timeline</h3>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024.03 - 현재</div>
+                    <div class="timeline-title">한국금융연구원 부연구위원</div>
+                    <div class="timeline-content">
+                        금융소비자 연구실에서 소비자금융 관련 연구를 수행하고 있습니다. 
+                        신용카드 사용 행동 분석, 녹색국채 발행방안 연구 등 다양한 프로젝트를 진행 중입니다.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2023.01 - 2024.02</div>
+                    <div class="timeline-title">한국조세재정연구원 재정제도팀장</div>
+                    <div class="timeline-content">
+                        지출 구조조정 및 코로나19 이후 주요국의 재정 운용 동향에 대한 연구와 
+                        정책 분석을 담당했습니다. 팀장으로서 연구 기획과 관리 업무를 수행했습니다.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2022.01 - 2022.12</div>
+                    <div class="timeline-title">공공정책2팀 팀장</div>
+                    <div class="timeline-content">
+                        공공기관 고객만족도 조사 개선방안 연구를 주도했습니다. 
+                        조사 방법론의 신뢰성 제고와 결과 활용도 향상을 위한 방안을 제시했습니다.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2021.01 - 2021.12</div>
+                    <div class="timeline-title">국가계약 TF 팀장</div>
+                    <div class="timeline-content">
+                        공공조달정책 연구를 담당했습니다. 국가계약법 개정에 따른 조달 시장의 
+                        변화를 분석하고 효율성 제고 방안을 연구했습니다.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2020.03 - 2020.12</div>
+                    <div class="timeline-title">한국조세재정연구원 입사</div>
+                    <div class="timeline-content">
+                        환경에너지 세제 연구를 시작으로 다양한 재정정책 연구에 참여했습니다. 
+                        이론과 실무를 연결하는 정책 연구의 중요성을 체감했습니다.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2015.03 - 2020.02</div>
+                    <div class="timeline-title">박사과정 수료</div>
+                    <div class="timeline-content">
+                        경제학 박사 학위를 취득했습니다. 실험경제학과 경매이론을 중심으로 
+                        연구를 수행했으며, 예산 제약 하에서의 최적 경매 설계에 대한 
+                        dissertation을 완성했습니다.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="container">
+        <div class="contact-info">
+            <a href="mailto:jsbae@kif.re.kr"><span>✉️</span> jsbae@kif.re.kr</a>
+            <a href="https://www.kif.re.kr/kif4/about/profile_summary?mid=62&id=jsbae"><span>🏢</span> 한국금융연구원</a>
+            <a href="#"><span>📚</span> Google Scholar</a>
+            <a href="https://github.com/beajinsu"><span>💻</span> GitHub</a>
+            <a href="#"><span>🐦</span> Twitter</a>
+        </div>
+        <p>&copy; 2024 Jinsoo Bae. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionName) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            const targetSection = document.getElementById(sectionName);
+            if (targetSection) {
+                targetSection.classList.add('active');
+                
+                // Smooth scroll to top
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('home');
+        });
+    </script>
+</body>
+</html>
