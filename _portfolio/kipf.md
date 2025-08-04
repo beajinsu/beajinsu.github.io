@@ -6,6 +6,7 @@ category: kipf
 share: false
 pagination: false
 taxonomy: false
+permalink: /kipf/
 ---
 
 ### 연구보고서

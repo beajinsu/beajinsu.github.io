@@ -10,7 +10,7 @@ redirect_from:
 
 I am an Associate Research Fellow at the Korea Institute of Finance (한국금융연구원 부연구위원).
 
-Overall, my research interests include Experimental Economics, Auction Theory, and Industrial Organization.
+Overall, my research interests include **Experimental Economics, Auction Theory, and Industrial Organization.**
 
 During my Ph.D. studies, I proposed a theoretical framework suggesting that, under budget constraints, optimal auctions may take a non-standard form—such as proportional auctions—rather than standard auctions that typically maximize revenue. This was also supported by experimental evidence. In another line of work, I demonstrated that joint bidding in auctions can have pro-competitive effects that outweigh anti-competitive concerns, especially in environments with strong asymmetries among bidders.
 

@@ -6,6 +6,7 @@ category: kif
 share: false
 pagination: false # portfolio class는 config.yml에 보면 single.html을 쓰고, single html은 post.pagination html을 쓰는데, 여기가서 이러한 false가 나오면 그 기능을 안쓰도록 껐음 
 taxonomy: false # 이와 마찬가지, page__taxonomy.html 을 조건부로 쓰도록
+permalink: /kif/
 ---
 
 ### 연구보고서
