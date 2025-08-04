@@ -13,7 +13,7 @@ parent_link: /sub_pages
 
 - 📁 [세제관련 연구](/sub_pages/research-data/세제관련)
 
-
+- 📁 [가상자산 관련 연구](/sub_pages/research-data/가상자산)
 
 ## 🔗 참고 사이트
 - [블록체인 익스플로러](https://www.blockchain.com/explorer)
