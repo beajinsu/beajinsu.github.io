@@ -15,6 +15,8 @@ parent_link: /sub_pages
 
 - 📁 [가상자산 관련 연구](/sub_pages/research-data/가상자산)
 
+- 📁 [기타](/sub_pages/research-data/기타)
+
 ## 🔗 참고 사이트
 - [블록체인 익스플로러](https://www.blockchain.com/explorer)
 
