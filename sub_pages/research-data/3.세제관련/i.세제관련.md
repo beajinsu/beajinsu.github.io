@@ -9,3 +9,4 @@ parent_link: /sub_pages/research-data/
 
 - 📁 [세제관련 일반](/sub_pages/research-data/세제관련_1)
 - 📁 [가상자산/스테이블 코인 관련](/sub_pages/research-data/세제관련_2)
+- 📁 [과세관할](/sub_pages/research-data/세제관련_3)
