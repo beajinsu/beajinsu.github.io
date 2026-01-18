@@ -12,14 +12,15 @@ permalink: /kif/
 ### 연구보고서
 
 ### 논단
-- [신용카드 수수료 규제의 해외사례와 정책적 시사점](https://www.kif.re.kr/kif4/publication/pub_detail?mid=20&nid=190&sid=188&vid=7367&cno=344639&pn=1)
-
-- [녹색국채 발행의 글로벌 동향과 시사점](https://www.kif.re.kr/kif4/publication/pub_detail?mid=20&nid=189&sid=188&vid=7480&cno=350585&pn=1) [(영상보고서)](https://www.youtube.com/watch?v=l9lJOG6AbsM)
+- [신용카드 수수료 규제의 해외사례와 정책적 시사점(2025)](https://www.kif.re.kr/kif4/publication/pub_detail?mid=20&nid=190&sid=188&vid=7367&cno=344639&pn=1)
+- [녹색국채 발행의 글로벌 동향과 시사점(2025)](https://www.kif.re.kr/kif4/publication/pub_detail?mid=20&nid=189&sid=188&vid=7480&cno=350585&pn=1) [(영상보고서)](https://www.youtube.com/watch?v=l9lJOG6AbsM)
+- [스테이블코인이 조세 행정에 미치는 리스크와 대응방안(2025)](https://www.kif.re.kr/kif4/publication/pub_detail?mid=20&nid=190&sid=188&vid=7518&cno=352764&pn=1)
 
 ### 정책보고서 (수탁과제)
 - 청년층 금융여건 분석 및 개선방향(2025, 금융위), 공동연구자  
 - 상호저축은행 특별계정 정리방안 연구용역(2025, 예보), 공동연구자  
 - 녹색국채 발행기반 연구(2025, 기재부), 연구책임자, [참고자료모음](/research-data/녹색국채_용역/)
+- ASEAN+3 역내 국경간 결제 네트워크 구축방안 연구(2025, 기재부), 공동연구자
 
 ### 기타보고서
 - [신용카드 수수료 규제의 해외사례와 정책적 시사점(2025), 여신금융, 2025년 봄호(통권81호).](https://www.crefia.or.kr/portal/infocenter/research/publication.xx)
