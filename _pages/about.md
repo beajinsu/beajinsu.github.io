@@ -8,11 +8,15 @@ redirect_from:
 ---
 
 
-I am an Associate Research Fellow at the Korea Institute of Finance (한국금융연구원 부연구위원).
+I am an Associate Research Fellow at the Korea Institute of Finance(KIF).
 
-Overall, my research interests include **Experimental Economics, Auction Theory, and Industrial Organization.**
+My academic training is rooted in **Experimental Economics, Auction Theory, and Industrial Organization.** My research interests lie at the intersection of market design and public policy, with applications in public procurement, fiscal policy, and financial markets.
 
-During my Ph.D. studies, I proposed a theoretical framework suggesting that, under budget constraints, optimal auctions may take a non-standard form—such as proportional auctions—rather than standard auctions that typically maximize revenue. This was also supported by experimental evidence. In another line of work, I demonstrated that joint bidding in auctions can have pro-competitive effects that outweigh anti-competitive concerns, especially in environments with strong asymmetries among bidders.
+During my Ph.D., I developed a theoretical framework showing that, under budget constraints, optimal auction design may depart from standard auctions—which typically maximize revenue—and instead take non-standard forms, such as proportional auctions. This insight was supported by experimental evidence.
+
+I also examined joint bidding in auctions and showed that it can generate pro-competitive effects that outweigh potential anti-competitive concerns, particularly in settings characterized by strong asymmetries among bidders. 
+
+Before joining KIF, I spent four years at the Korea Institute of Public Finance (2020–2024), where I led research on public procurement policy, environmental taxation, and fiscal management. Since 2024, I have been working at KIF's Financial Consumer Research Division, focusing on consumer finance and payment systems, including digital assets such as stablecoins.
 
 2020년 한국조세재정연구원에 입사하여 4년간 재직하면서 공공기관 고객만족도 조사(공공정책2팀 팀장), 환경에너지 세제, 공공조달정책(국가계약 TF 팀장) 등 다양한 정책 연구를 수행하였습니다. 이후 재정제도팀장으로서 지출 구조조정 및 코로나19 이후 주요국의 재정 운용 동향에 대한 연구와 정책 분석을 담당하였습니다.
 
