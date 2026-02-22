@@ -18,7 +18,7 @@ I also examined joint bidding in auctions and showed that it can generate pro-co
 
 Before joining KIF, I spent four years at the Korea Institute of Public Finance (2020–2024), where I led research on public procurement policy, environmental taxation, and fiscal management. Since 2024, I have been working at KIF's Financial Consumer Research Division, focusing on consumer finance and payment systems, including digital assets such as stablecoins.
 
----
+<hr>
 
 2020년 한국조세재정연구원에 입사하여 4년간 재직하면서 공공기관 고객만족도 조사(공공정책2팀 팀장), 환경에너지 세제, 공공조달정책(국가계약 TF 팀장) 등 다양한 정책 연구를 수행하였습니다. 이후 재정제도팀장으로서 지출 구조조정 및 코로나19 이후 주요국의 재정 운용 동향에 대한 연구와 정책 분석을 담당하였습니다.
 
