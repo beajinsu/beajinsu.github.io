@@ -18,7 +18,7 @@ During my Ph.D. studies, I proposed a theoretical framework suggesting that, und
 
 2024년 한국금융연구원로 이직하여 금융소비자 연구실에서 근무하고 있으며 신용카드와 같은 소비자금융 관련 연구 및 녹색국채 발행방안 연구와 같은 수탁과제를 수행하고 있습니다. [금융연구원 웹페이지](https://www.kif.re.kr/kif4/about/profile_summary?mid=62&id=jsbae)
 
-자세한 사항은 상단의 [Research](/publications/), [조세연](/portfolio/kipf/), [금융연](/portfolio/kif/), [CV](/cv/) 페이지를 확인 부탁드립니다.
+자세한 사항은 상단의 [Research](/publications/), [조세연](/kipf/), [금융연](/kif/), [CV](/cv/) 페이지를 확인 부탁드립니다.
 
 You can find more details in my [CV](/cv/).
 
