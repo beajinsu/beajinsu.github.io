@@ -12,6 +12,7 @@ permalink: /kif/
 ### 연구보고서
 
 ### 논단
+- [지급결제수단으로서의 스테이블코인 활용 동향 및 시사점(2026)](https://www.kif.re.kr/kif4/publication/pub_detail?mid=20&nid=190&sid=188&vid=7638&cno=358633&pn=1)
 - [신용카드 수수료 규제의 해외사례와 정책적 시사점(2025)](https://www.kif.re.kr/kif4/publication/pub_detail?mid=20&nid=190&sid=188&vid=7367&cno=344639&pn=1)
 - [녹색국채 발행의 글로벌 동향과 시사점(2025)](https://www.kif.re.kr/kif4/publication/pub_detail?mid=20&nid=189&sid=188&vid=7480&cno=350585&pn=1) [(영상보고서)](https://www.youtube.com/watch?v=l9lJOG6AbsM)
 - [스테이블코인이 조세 행정에 미치는 리스크와 대응방안(2025)](https://www.kif.re.kr/kif4/publication/pub_detail?mid=20&nid=190&sid=188&vid=7518&cno=352764&pn=1)

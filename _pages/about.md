@@ -18,9 +18,11 @@ I also examined joint bidding in auctions and showed that it can generate pro-co
 
 Before joining KIF, I spent four years at the Korea Institute of Public Finance (2020–2024), where I led research on public procurement policy, environmental taxation, and fiscal management. Since 2024, I have been working at KIF's Financial Consumer Research Division, focusing on consumer finance and payment systems, including digital assets such as stablecoins.
 
+---
+
 2020년 한국조세재정연구원에 입사하여 4년간 재직하면서 공공기관 고객만족도 조사(공공정책2팀 팀장), 환경에너지 세제, 공공조달정책(국가계약 TF 팀장) 등 다양한 정책 연구를 수행하였습니다. 이후 재정제도팀장으로서 지출 구조조정 및 코로나19 이후 주요국의 재정 운용 동향에 대한 연구와 정책 분석을 담당하였습니다.
 
-2024년 한국금융연구원로 이직하여 금융소비자 연구실에서 근무하고 있으며 신용카드와 같은 소비자금융 관련 연구 및 녹색국채 발행방안 연구와 같은 수탁과제를 수행하고 있습니다. [금융연구원 웹페이지](https://www.kif.re.kr/kif4/about/profile_summary?mid=62&id=jsbae)
+2024년 한국금융연구원로 이직하여 금융소비자 연구실에서 근무하고 있으며 신용카드,할부금융 등 소비자금융 관련 연구와 스테이블코인을 포함한 지급결제에 관한 연구를 하고 있습니다. [금융연구원 웹페이지](https://www.kif.re.kr/kif4/about/profile_summary?mid=62&id=jsbae)
 
 자세한 사항은 상단의 [Research](/publications/), [조세연](/kipf/), [금융연](/kif/), [CV](/cv/) 페이지를 확인 부탁드립니다.
 
