@@ -80,6 +80,7 @@ Teaching
 Service and leadership
 ======
 * Refereeing
+  * Journal of Money & Finance (금융연구)
   * Experimental Economics
   * Eastern Economic Journal
   * Telecommunications Policy
