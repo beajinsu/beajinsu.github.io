@@ -88,3 +88,6 @@ Service and leadership
   * Social Choice and Welfare
   * The Korea Local Administration Review (지방행정연구)
   * Journal of Institutional and Theoretical Economics
+
+금융관련 (for fun)
+  * 국내외 레버리지 ETP Guide 수강
