@@ -9,4 +9,3 @@ parent_link: /sub_pages/research-data/
 
 - 📁 [시뇨리지/통화정책](/sub_pages/research-data/가상자산1)
 - 📁 [스테이블코인 실제 운영](/sub_pages/research-data/가상자산2)
-- 📁 [추가공란](/sub_pages/research-data/가상자산3)
