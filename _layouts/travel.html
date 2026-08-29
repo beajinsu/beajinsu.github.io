@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page.title }} — 여행일기</title>
+<meta name="description" content="{{ page.excerpt | strip_html | strip | truncate: 140 }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+:root{
+  --paper:#FAF9F6; --ink:#211F1B; --muted:#6E6A61; --faint:#9B968B;
+  --rule:#E5E1D8; --day1:#3D7A8C; --day2:#C2703E; --day3:#6E8C3D; --day4:#7A5C94; --day5:#A84D5F;
+  --serif:"Gowun Batang",Georgia,serif;
+  --sans:"IBM Plex Sans KR",-apple-system,"Malgun Gothic",sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.75}
+
+/* ── 2단: 왼쪽 고정 지도, 오른쪽 이야기 ── */
+.shell{display:grid;grid-template-columns:minmax(340px,44%) 1fr;min-height:100vh}
+.map-col{position:sticky;top:0;height:100vh;z-index:1}
+#trip-map{position:absolute;inset:0}
+.map-nav{position:absolute;top:1rem;left:1rem;z-index:600;display:flex;gap:.45rem;flex-wrap:wrap}
+.map-nav a{font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;color:var(--ink);
+  background:rgba(250,249,246,.93);border:1px solid var(--rule);border-radius:999px;
+  padding:.4rem .9rem;text-decoration:none;transition:background .15s}
+.map-nav a:hover{background:#fff}
+.map-legend{position:absolute;left:1rem;bottom:1rem;z-index:600;display:flex;gap:.75rem;flex-wrap:wrap;
+  font-family:var(--mono);font-size:.68rem;color:var(--muted);
+  background:rgba(250,249,246,.93);border:1px solid var(--rule);border-radius:8px;padding:.45rem .7rem}
+.map-legend span::before{content:"";display:inline-block;width:.6rem;height:.6rem;border-radius:50%;
+  margin-right:.32rem;vertical-align:-.05rem}
+.map-legend .d1::before{background:var(--day1)} .map-legend .d2::before{background:var(--day2)}
+.map-legend .d3::before{background:var(--day3)} .map-legend .d4::before{background:var(--day4)}
+.map-legend .d5::before{background:var(--day5)}
+.zoom-hint{position:absolute;top:1rem;right:3.4rem;z-index:600;
+  font-family:var(--mono);font-size:.66rem;color:var(--muted);
+  background:rgba(250,249,246,.93);border:1px solid var(--rule);border-radius:999px;
+  padding:.35rem .75rem;pointer-events:none;transition:opacity .25s;opacity:0}
+.map-col:hover .zoom-hint{opacity:1}
+.zoom-hint.off{opacity:0 !important}
+
+/* ── 오른쪽 본문 ── */
+.story{padding:clamp(2.2rem,5vw,4rem) clamp(1.2rem,4.5vw,3.6rem) 5rem;max-width:760px}
+.kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;color:var(--faint);
+  text-transform:uppercase;margin:0 0 .7rem}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(2.1rem,4.2vw,3.1rem);
+  line-height:1.14;margin:0 0 .6rem;letter-spacing:-.01em;text-wrap:balance}
+.lede{margin:0 0 1rem;color:var(--muted);font-size:1rem;max-width:34em;text-wrap:pretty}
+.album-note{margin:1.4rem 0 0;padding:.75rem 1rem;border:1px solid var(--rule);
+  border-radius:10px;font-size:.88rem;color:var(--muted);background:#fff}
+.album-note a{color:var(--day1)}
+.intro{font-family:var(--serif);font-size:1.06rem;margin-top:1.6rem}
+
+.day-head{display:flex;align-items:baseline;gap:.75rem;margin:3.4rem 0 .4rem}
+.day-num{font-family:var(--mono);font-size:.7rem;letter-spacing:.13em;color:#fff;
+  padding:.22rem .58rem;border-radius:4px}
+.day-head h2{font-family:var(--serif);font-weight:700;font-size:1.5rem;margin:0;letter-spacing:-.01em}
+.day-head small{color:var(--faint);font-weight:400;font-size:.88rem}
+.day-summary{color:var(--muted);margin:.1rem 0 1.3rem;font-size:.94rem}
+
+.tl{list-style:none;margin:0;padding:0;position:relative}
+.tl::before{content:"";position:absolute;left:3.6rem;top:.7rem;bottom:.7rem;width:1px;background:var(--rule)}
+.stop{position:relative;padding:.55rem 0 2.3rem 5.2rem;border-radius:12px;transition:background .25s}
+.stop.on{background:linear-gradient(to right,transparent 4.4rem,rgba(61,122,140,.055) 4.4rem)}
+.stop:last-child{padding-bottom:.6rem}
+.stop-time{position:absolute;left:0;top:.9rem;width:2.85rem;text-align:right;
+  font-family:var(--mono);font-size:.75rem;color:var(--faint);font-variant-numeric:tabular-nums}
+.stop-pin{position:absolute;left:3.23rem;top:.98rem;width:.76rem;height:.76rem;border-radius:50%;
+  background:var(--paper);border:2.5px solid var(--day1);z-index:1;transition:transform .25s}
+.stop.on .stop-pin{transform:scale(1.35)}
+.stop-name{font-family:var(--serif);font-weight:700;font-size:1.16rem;margin:0 0 .22rem;letter-spacing:-.005em}
+.stop-detail{font-size:.76rem;color:var(--faint);margin:0 0 .45rem;font-family:var(--mono)}
+.stop-note{margin:0;font-size:.96rem;max-width:36em}
+.stop-links{margin:.45rem 0 0;font-size:.74rem;font-family:var(--mono)}
+.stop-links a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--rule)}
+.stop-links a:hover{color:var(--day1);border-color:var(--day1)}
+
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:.65rem;margin-top:.95rem}
+.shots figure{margin:0}
+.shots a{display:block;overflow:hidden;border-radius:10px}
+.shots img{width:100%;height:225px;object-fit:cover;display:block;transition:transform .25s ease}
+.shots a:hover img{transform:scale(1.03)}
+.shots figcaption{font-size:.75rem;color:var(--faint);margin-top:.3rem}
+
+.foot{border-top:1px solid var(--rule);margin-top:3.4rem;padding-top:1.3rem;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;
+  font-size:.8rem;color:var(--muted)}
+.foot a{color:var(--muted)}
+.foot a:hover{color:var(--ink)}
+
+.leaflet-container{font-family:var(--sans);background:#EDEAE2}
+.mk{color:#fff;border-radius:50%;width:26px !important;height:26px !important;
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.74rem;
+  font-family:var(--mono);border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.35);
+  cursor:pointer;transition:transform .2s}
+.mk--d1{background:var(--day1)} .mk--d2{background:var(--day2)} .mk--d3{background:var(--day3)}
+.mk--d4{background:var(--day4)} .mk--d5{background:var(--day5)}
+.mk.on{transform:scale(1.45);z-index:900 !important;box-shadow:0 2px 9px rgba(0,0,0,.45)}
+
+/* ── 좁은 화면: 지도 상단 고정, 글이 아래로 지나감 ── */
+@media(max-width:960px){
+  .shell{display:block}
+  .map-col{position:sticky;top:0;height:44vh;min-height:300px}
+  .story{max-width:none;padding-top:1.8rem}
+  .map-legend{display:none}
+  .shots img{height:185px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+{% include base_path %}
+{% assign day_colors = "var(--day1)|var(--day2)|var(--day3)|var(--day4)|var(--day5)" | split: "|" %}
+
+<div class="shell">
+
+<div class="map-col">
+  <div id="trip-map"></div>
+  <span class="zoom-hint" id="zoom-hint">클릭하면 스크롤로 확대·축소</span>
+  <nav class="map-nav">
+    <a href="{{ base_path }}/travels/">← 여행일기</a>
+    <a href="{{ base_path }}/travel_map">여정 지도</a>
+  </nav>
+  {% if page.days.size > 1 %}
+  <div class="map-legend">
+    {% for day in page.days %}{% assign ci = forloop.index0 | modulo: 5 | plus: 1 %}<span class="d{{ ci }}">{{ day.date | date: "%-m/%-d" }}</span>{% endfor %}
+  </div>
+  {% endif %}
+</div>
+
+<main class="story" id="story">
+  <p class="kicker">{{ page.date | date: "%Y.%m.%d" }}{% if page.end_date %} – {{ page.end_date | date: "%m.%d" }}{% endif %}{% if page.region %} · {{ page.region }}{% endif %}</p>
+  <h1>{{ page.title }}</h1>
+  {% if page.excerpt %}<p class="lede">{{ page.excerpt | strip_html | strip }}</p>{% endif %}
+
+  {% if page.album %}
+  <p class="album-note">📷 인물이 나온 사진은 <a href="{{ page.album }}" target="_blank" rel="noopener">공유 앨범</a>에 따로 있습니다. 초대받은 분만 열립니다.</p>
+  {% endif %}
+
+  {% if content and content != "" %}<div class="intro">{{ content }}</div>{% endif %}
+
+  {% for day in page.days %}
+    {% assign day_idx = forloop.index %}
+    {% assign cidx = forloop.index0 | modulo: 5 %}
+    {% assign dc = day_colors[cidx] | default: "var(--day1)" %}
+    <div class="day-head">
+      <span class="day-num" style="background:{{ dc }}">DAY {{ day_idx }}</span>
+      <h2>{{ day.date | date: "%m월 %d일" }}</h2>
+      {% if day.title %}<small>{{ day.title }}</small>{% endif %}
+    </div>
+    {% if day.summary %}<p class="day-summary">{{ day.summary }}</p>{% endif %}
+
+    <ul class="tl">
+    {% for p in day.places %}
+      <li class="stop" id="place-{{ day_idx }}-{{ forloop.index }}"
+          {% if p.lat and p.lon %}data-lat="{{ p.lat }}" data-lon="{{ p.lon }}" data-day="{{ day_idx }}"{% endif %}>
+        <span class="stop-time">{{ p.time }}</span>
+        <span class="stop-pin" style="border-color:{{ dc }}"></span>
+        <h3 class="stop-name">{{ p.name }}</h3>
+        {% capture detail %}{% if p.addr %}{{ p.addr }}{% endif %}{% if p.hours %}{% if p.addr %} · {% endif %}{{ p.hours }}{% endif %}{% endcapture %}
+        {% if detail != "" %}<p class="stop-detail">{{ detail }}</p>{% endif %}
+        {% if p.note %}<p class="stop-note">{{ p.note }}</p>{% endif %}
+
+        {% comment %} 지도 링크: 검색어나 좌표가 실제로 있을 때만 {% endcomment %}
+        {% if p.map_query and p.map_query != "" %}{% assign q = p.map_query %}{% elsif p.lat and p.lon %}{% assign q = p.name %}{% else %}{% assign q = nil %}{% endif %}
+        {% if q %}
+        <p class="stop-links">
+          <a href="https://map.kakao.com/?q={{ q | url_encode }}" target="_blank" rel="noopener">카카오맵</a> ·
+          <a href="https://map.naver.com/p/search/{{ q | url_encode }}" target="_blank" rel="noopener">네이버지도</a> ·
+          <a href="https://www.google.com/maps/search/?api=1&query={% if p.lat and p.lon %}{{ p.lat }},{{ p.lon }}{% else %}{{ q | url_encode }}{% endif %}" target="_blank" rel="noopener">구글맵</a>
+        </p>
+        {% endif %}
+
+        {% if p.photos and p.photos.size > 0 %}
+        <div class="shots">
+          {% for photo in p.photos %}
+            {% if photo.file %}{% assign src = photo.file %}{% assign cap = photo.caption %}{% else %}{% assign src = photo %}{% assign cap = nil %}{% endif %}
+            <figure>
+              <a href="{{ base_path }}/images/travels/{{ src }}" target="_blank" rel="noopener"><img src="{{ base_path }}/images/travels/{{ src }}" alt="{{ cap | default: p.name }}" loading="lazy"></a>
+              {% if cap %}<figcaption>{{ cap }}</figcaption>{% endif %}
+            </figure>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  {% endfor %}
+
+  <div class="foot">
+    <a href="{{ base_path }}/travels/">← 여행일기 목록</a>
+    <a href="{{ base_path }}/">{{ site.author.name | default: "홈" }}</a>
+  </div>
+</main>
+
+</div>
+
+<script>
+(function(){
+  var el = document.getElementById('trip-map');
+  var stopEls = Array.prototype.slice.call(document.querySelectorAll('.stop[data-lat]'));
+  if (!stopEls.length) { document.querySelector('.map-col').style.display = 'none'; return; }
+
+  var map = L.map(el, { scrollWheelZoom: false, zoomControl: false });
+  L.control.zoom({ position: 'topright' }).addTo(map);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
+  }).addTo(map);
+
+  var dayColors = { 1: '#3D7A8C', 2: '#C2703E', 3: '#6E8C3D', 4: '#7A5C94', 5: '#A84D5F' };
+  var byDay = {}, seq = {}, markers = {}, bounds = [];
+  stopEls.forEach(function(s2){
+    var lat = +s2.dataset.lat, lon = +s2.dataset.lon, day = +s2.dataset.day;
+    var name = (s2.querySelector('.stop-name') || {}).textContent || '';
+    var time = (s2.querySelector('.stop-time') || {}).textContent || '';
+    (byDay[day] = byDay[day] || []).push([lat, lon]);
+    seq[day] = (seq[day] || 0) + 1;
+    bounds.push([lat, lon]);
+    var icon = L.divIcon({
+      className: 'mk mk--d' + (((day - 1) % 5) + 1), html: String(seq[day]),
+      iconSize: [26, 26], iconAnchor: [13, 13]
+    });
+    var m = L.marker([lat, lon], { icon: icon }).addTo(map)
+      .bindPopup('<b>' + name + '</b><br>' + time);
+    m.on('click', function(){
+      s2.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+    markers[s2.id] = m;
+  });
+  Object.keys(byDay).forEach(function(d){
+    if (byDay[d].length > 1)
+      L.polyline(byDay[d], { color: dayColors[((d - 1) % 5) + 1] || '#3D7A8C',
+                             weight: 2.5, opacity: .5, dashArray: '5 7' }).addTo(map);
+  });
+  map.fitBounds(bounds, { padding: [42, 42] });
+  window.addEventListener('load', function(){ map.invalidateSize(); });
+
+  /* 읽는 위치를 지도에 반영 */
+  var active = null;
+  function deactivate(){
+    if (!active) return;
+    active.classList.remove('on');
+    var pm = markers[active.id];
+    if (pm && pm._icon) pm._icon.classList.remove('on');
+    active = null;
+  }
+  function activate(s2){
+    if (active === s2) return;
+    deactivate();
+    active = s2;
+    s2.classList.add('on');
+    var m = markers[s2.id];
+    if (m && m._icon) m._icon.classList.add('on');
+    var z = Math.max(map.getZoom(), 13);
+    map.flyTo([+s2.dataset.lat, +s2.dataset.lon], z, { duration: .8 });
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) activate(e.target);
+    });
+  }, { rootMargin: '-38% 0px -52% 0px' });
+  stopEls.forEach(function(s2){ io.observe(s2); });
+
+  /* 맨 위(제목)로 돌아오면 전체 보기로 복귀 */
+  var head = document.querySelector('h1');
+  if (head) {
+    new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) {
+          deactivate();
+          map.flyToBounds(bounds, { padding: [42, 42], duration: .8 });
+        }
+      });
+    }, { rootMargin: '0px 0px -70% 0px' }).observe(head);
+  }
+
+  /* 스크롤 줌: 평소엔 잠그고, 지도를 클릭하면 풀어준다 */
+  var hint = document.getElementById('zoom-hint');
+  map.on('click focus', function(){
+    map.scrollWheelZoom.enable();
+    if (hint) { hint.textContent = '스크롤로 확대·축소'; hint.classList.add('off'); }
+  });
+  map.on('mouseout blur', function(){
+    map.scrollWheelZoom.disable();
+    if (hint) { hint.textContent = '클릭하면 스크롤로 확대·축소'; hint.classList.remove('off'); }
+  });
+})();
+</script>
+</body>
+</html>

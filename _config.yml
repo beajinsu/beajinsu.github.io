@@ -229,6 +229,9 @@ collections:
   portfolio:
     output: true
     permalink: /:collection/:path/
+  travels:
+    output: true
+    permalink: /travels/:path/
   #talks:
   #  output: true
   #  permalink: /:collection/:path/
@@ -280,7 +283,12 @@ defaults:
       layout: single
       author_profile: true
       share: true
-      comment: true
+  # _travels
+  - scope:
+      path: ""
+      type: travels
+    values:
+      layout: travel
   # _talks
   - scope:
       path: ""

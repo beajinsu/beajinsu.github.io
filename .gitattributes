@@ -1,0 +1,21 @@
+# 줄바꿈 정규화: 저장소에는 항상 LF로 저장하고, 체크아웃은 OS 기본을 따른다.
+# 구글드라이브 + 윈도우 조합에서 생기는 CRLF 잡음을 막는다.
+* text=auto
+
+# 텍스트로 오인하면 안 되는 것들
+*.jpg  binary
+*.jpeg binary
+*.png  binary
+*.gif  binary
+*.webp binary
+*.ico  binary
+*.pdf  binary
+*.woff binary
+*.woff2 binary
+*.ttf  binary
+*.eot  binary
+*.mp4  binary
+*.mov  binary
+
+# 항상 LF 이어야 동작하는 것들
+*.sh   text eol=lf

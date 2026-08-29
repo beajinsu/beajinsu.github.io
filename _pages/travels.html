@@ -1,0 +1,89 @@
+---
+layout: null
+title: "여행일기"
+permalink: /travels/
+---
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>여행일기 — {{ site.author.name | default: "Jinsoo Bae" }}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#FAF9F6; --ink:#211F1B; --muted:#6E6A61; --faint:#9B968B;
+  --rule:#E5E1D8; --accent:#3D7A8C;
+  --serif:"Gowun Batang",Georgia,serif;
+  --sans:"IBM Plex Sans KR",-apple-system,"Malgun Gothic",sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.7}
+.wrap{max-width:820px;margin:0 auto;padding:0 clamp(1.1rem,4vw,2rem) 5rem}
+header{padding:clamp(2.6rem,7vw,4.5rem) 0 1.8rem;border-bottom:1px solid var(--rule)}
+.nav{display:flex;gap:.5rem;margin-bottom:2rem}
+.nav a{font-family:var(--mono);font-size:.74rem;letter-spacing:.05em;color:var(--ink);
+  border:1px solid var(--rule);border-radius:999px;padding:.4rem .95rem;text-decoration:none;background:#fff}
+.nav a:hover{border-color:var(--accent);color:var(--accent)}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(2.2rem,6vw,3.2rem);margin:0 0 .6rem;letter-spacing:-.01em}
+.lede{margin:0;color:var(--muted);max-width:36em;text-wrap:pretty}
+.lede a{color:var(--accent)}
+.year{font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;color:var(--faint);margin:3rem 0 1rem}
+.card{display:grid;grid-template-columns:220px 1fr;gap:1.3rem;align-items:stretch;
+  background:#fff;border:1px solid var(--rule);border-radius:14px;overflow:hidden;
+  text-decoration:none;color:inherit;margin-bottom:1.1rem;transition:box-shadow .18s,transform .18s}
+.card:hover{box-shadow:0 6px 22px rgba(33,31,27,.09);transform:translateY(-2px)}
+.card-img{background:#EDEAE2;min-height:170px}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card-body{padding:1.15rem 1.3rem 1.15rem 0;display:flex;flex-direction:column;gap:.35rem}
+.card-kicker{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;color:var(--faint)}
+.card h2{font-family:var(--serif);font-weight:700;font-size:1.35rem;margin:0;letter-spacing:-.005em}
+.card p{margin:.1rem 0 0;font-size:.92rem;color:var(--muted)}
+.card-meta{margin-top:auto;padding-top:.6rem;font-family:var(--mono);font-size:.72rem;color:var(--faint)}
+@media(max-width:600px){
+  .card{grid-template-columns:1fr}
+  .card-img{height:180px;min-height:0}
+  .card-body{padding:0 1.2rem 1.2rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <nav class="nav">
+    <a href="/">← 홈</a>
+    <a href="/travel_map">여정 지도</a>
+  </nav>
+  <h1>여행일기</h1>
+  <p class="lede">다녀온 곳을 사진 속 GPS와 촬영시각으로 되짚어 적는 기록입니다. 전체 여정을 한눈에 보려면 <a href="/travel_map">여정 지도</a>를 여세요.</p>
+</header>
+
+{% assign travels = site.travels | sort: 'date' | reverse %}
+{% assign years = travels | group_by_exp: "t", "t.date | date: '%Y'" %}
+{% for year in years %}
+  <p class="year">{{ year.name }}</p>
+  {% for t in year.items %}
+    {% assign cover = t.cover %}
+    {% unless cover %}
+      {% for d in t.days %}{% for pl in d.places %}{% for ph in pl.photos %}
+        {% unless cover %}{% if ph.file %}{% assign cover = ph.file %}{% else %}{% assign cover = ph %}{% endif %}{% endunless %}
+      {% endfor %}{% endfor %}{% endfor %}
+    {% endunless %}
+    {% assign nplace = 0 %}{% for d in t.days %}{% assign nplace = nplace | plus: d.places.size %}{% endfor %}
+    <a class="card" href="{{ t.url }}">
+      <div class="card-img">{% if cover %}<img src="/images/travels/{{ cover }}" alt="{{ t.title }}" loading="lazy">{% endif %}</div>
+      <div class="card-body">
+        <span class="card-kicker">{{ t.date | date: "%Y.%m.%d" }}{% if t.end_date %} – {{ t.end_date | date: "%m.%d" }}{% endif %}{% if t.region %} · {{ t.region }}{% endif %}</span>
+        <h2>{{ t.title }}</h2>
+        {% if t.excerpt %}<p>{{ t.excerpt | strip_html | strip | truncate: 90 }}</p>{% endif %}
+        <span class="card-meta">{{ t.days.size }}일 · {{ nplace }}곳</span>
+      </div>
+    </a>
+  {% endfor %}
+{% endfor %}
+</div>
+</body>
+</html>

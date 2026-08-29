@@ -11,6 +11,7 @@ under construction.
 - 📂 [연구 데이터 페이지](/sub_pages/research-data/)
 - ✍️ [단상 페이지(velog)](https://velog.io/@beajinsu/posts)
 - 🧳 [지도로 본 나그네 여정](/travel_map)
+- 📓 [여행일기](/travels/)
 - 😄 [일상 아무 모음집](/sub_pages/fun)      
 
 <!-- - 🧳 [여행 페이지2](/travel2/)  -->
