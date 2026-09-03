@@ -10,6 +10,7 @@ permalink: /kif/
 ---
 
 ### 연구보고서
+- [스테이블코인 확산이 카드 결제 비중에 미치는 영향(2026)](https://www.kif.re.kr/kif4/publication/pub_detail?&mid=10&nid=867&sid=867&vid=7708&cno=363243)
 
 ### 논단
 - [가상자산 과세의 주요 쟁점과 해외사례 시사점(2026)](https://www.kif.re.kr/kif4/publication/pub_detail?mid=20&nid=190&sid=188&vid=7689&cno=362281&pn=1)
