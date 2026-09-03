@@ -4,17 +4,14 @@ title: Blog Categories
 permalink: /sub_pages/
 ---
 
-개발중입니다.
-under construction.
+- 📓 [여행일기](/travels/)
+  AI가 사진 위치를 보고 여행으로 생각한 모든 일정을 자동으로 만들어 줍니다.
+  여행, 출장, 타 지역 장기 방문 등 모두 포함 될 수 있습니다.
+
+- 🧳 [지도로 본 나그네 여정](/travel_map)
+  사진의 GPS를 모아 그린 히트맵입니다.
 
 - 📊 [시장 정보 페이지](/investment/)
+  배당수익률과 코인 시세를 자동으로 모읍니다.
+
 - 📂 [연구 데이터 페이지](/sub_pages/research-data/)
-- ✍️ [단상 페이지(velog)](https://velog.io/@beajinsu/posts)
-- 🧳 [지도로 본 나그네 여정](/travel_map)
-- 📓 [여행일기](/travels/)
-- 😄 [일상 아무 모음집](/sub_pages/fun)      
-
-<!-- - 🧳 [여행 페이지2](/travel2/)  -->
-<!-- - 주의: 별도의 repo가 아닌 페이지들은 끝에/ 가 붙으면 이동이 안됨 -->
-
-> 차후 좀더 수정 예정
