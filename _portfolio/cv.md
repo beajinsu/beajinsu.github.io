@@ -50,9 +50,6 @@ Journal Publications
 
 Talks
 ======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
 * 2025 제 3회 기후재정포럼 세미나 : 기후재정, 어떻게 조달할 것인가 [매거진한경](https://magazine.hankyung.com/business/article/202509117659b)
 * 2025 제5차 지속가능경제 정책협의회 [한국경제](https://www.hankyung.com/article/202505204470i) 
 * 2024 재생에너지 생산·사용 활성화 심포지엄 [세정신문](https://www.taxtimes.co.kr/news/article.html?no=264890)
@@ -74,12 +71,11 @@ Talks
   
 Teaching
 ======
-  <ul>
-  {% for post in site.teaching reversed %}
-    {% if post.hidden %}{% continue %}{% endif %}
-    {% include archive-single-cv.html %}
-  {% endfor %}
-  </ul>
+* **The Ohio State University**, Teaching Assistant
+  * Graduate Micro Theory 2B: Spring 2016, Spring 2017, Spring 2018
+  * Principles of Macroeconomics: Fall 2016
+  * Graduate Microeconomics, Departmental Tutor: Summer 2016
+  * Principles of Microeconomics: Fall 2015
   
 Service and leadership
 ======

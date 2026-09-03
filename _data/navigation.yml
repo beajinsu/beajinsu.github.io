@@ -1,22 +1,12 @@
-# The following is the order of the links in the header of the website.
+# 상단 메뉴. 여기 순서가 곧 화면 순서다.
+# 목록에서 빼면 메뉴에 안 보일 뿐, 페이지 자체는 살아 있다.
 #
-# Changing the order here will adjust the order and you can also add additional
-# links. Removing a link prevents it from showing in the header, but does not
-# prevent it from being included in the site.
-#
-# NOTE that only one of the CV options should be selected, the first is for the
-#      Markdown formatted page while the second is generated using JSON.
+# url 앞의 "/" 는 사이트 루트 기준 절대경로를 뜻한다. 빼면 상대경로가 된다.
 
 main:
   - title: "Research"
     url: /publications/
 
- # - title: "Talks"
- #   url: /talks/    
-
-  - title: "Teaching"
-    url: /teaching/    
-    
   - title: "KIPF(조세연)"
     url: /kipf/
 
@@ -25,14 +15,6 @@ main:
 
   - title: "CV"
     url: /cv/
-    
-  # - title: "CV"
-  #   url: /cv-json/
-  # cv를 마크다운 형식으로 쓰거나 cv-json 방식으로 쓰거나 둘중에 하나를 선택하도록
-    
-  #- title: "Guide"
-  #  url: /markdown/
 
   - title: "Blog"
-    url: /sub_pages/  # /를 앞에 눌러주면 root에서 가는 절대경로이고 /를 누르지 않으면 상대경로가 됨. 
-  # url: /year-archive/  원래 default 형식으로 들어오려면 이걸로 갈 수 있음. 
+    url: /sub_pages/
