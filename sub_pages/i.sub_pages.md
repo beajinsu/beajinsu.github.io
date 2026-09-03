@@ -14,4 +14,5 @@ permalink: /sub_pages/
 - 📊 [시장 정보 페이지](/investment/)
   배당수익률과 코인 시세를 자동으로 모읍니다.
 
-- 📂 [연구 데이터 페이지](/sub_pages/research-data/)
+- 📂 [연구 노트](/notes/)
+  연구하며 찾아본 자료와 정리한 메모입니다.

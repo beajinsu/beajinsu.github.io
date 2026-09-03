@@ -231,6 +231,9 @@ collections:
   travels:
     output: true
     permalink: /travels/:path/
+  notes:
+    output: true
+    permalink: /notes/:path/
 
 
 # These settings control how pages and collections are included in the site
@@ -285,12 +288,14 @@ defaults:
       type: travels
     values:
       layout: travel
-  # _talks
+  # _notes
   - scope:
       path: ""
-      type: talks
+      type: notes
     values:
-      layout: talk
+      layout: single
+      author_profile: true
+      share: false
       author_profile: true
       share: true
 

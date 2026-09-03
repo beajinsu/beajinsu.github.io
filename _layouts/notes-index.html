@@ -1,0 +1,88 @@
+---
+layout: single
+---
+
+{% comment %}
+  하위 문서를 자동으로 나열한다. 목차를 손으로 관리하지 않는다.
+  파일을 폴더에 넣으면 여기 저절로 나타난다.
+
+  - 바로 아래 단계만 보여준다 (손자는 각자의 목차가 맡는다)
+  - 폴더(하위 목차가 있는 것)를 먼저, 그다음 문서
+  - 순서는 front matter 의 order, 없으면 제목순
+{% endcomment %}
+
+{{ content }}
+
+{%- assign here = page.url -%}
+{%- assign depth = here | split: "/" | size -%}
+{%- assign kids = "" | split: "" -%}
+{%- for doc in site.notes -%}
+  {%- if doc.url != here and doc.url contains here -%}
+    {%- comment -%}
+      한 단계 아래만. 주소를 "/" 로 쪼갠 조각 수로 잰다.
+      /notes/ → 3, /notes/캐피탈/ → 4, /notes/캐피탈/자동차/ → 5
+    {%- endcomment -%}
+    {%- assign d = doc.url | split: "/" | size -%}
+    {%- assign want = depth | plus: 1 -%}
+    {%- if d == want -%}
+      {%- assign kids = kids | push: doc -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- comment -%} 폴더(자식이 있는 것)와 문서를 가른다 {%- endcomment -%}
+{%- assign folders = "" | split: "" -%}
+{%- assign docs = "" | split: "" -%}
+{%- for kid in kids -%}
+  {%- assign n = 0 -%}
+  {%- for d in site.notes -%}
+    {%- if d.url != kid.url and d.url contains kid.url -%}{%- assign n = n | plus: 1 -%}{%- endif -%}
+  {%- endfor -%}
+  {%- if n > 0 -%}
+    {%- assign folders = folders | push: kid -%}
+  {%- else -%}
+    {%- assign docs = docs | push: kid -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- assign folders = folders | sort: "order" -%}
+{%- assign docs = docs | sort: "order" -%}
+
+{% if folders.size > 0 or docs.size > 0 %}
+<ul class="notes-list">
+{%- for f in folders %}
+  <li><span class="notes-mark">📁</span>
+      <a href="{{ f.url }}">{{ f.title }}</a>
+      {%- if f.summary %}<span class="notes-desc">{{ f.summary }}</span>{% endif -%}
+  </li>
+{%- endfor %}
+{%- for d in docs %}
+  <li><span class="notes-mark">📄</span>
+      <a href="{{ d.url }}">{{ d.title }}</a>
+      {%- if d.summary %}<span class="notes-desc">{{ d.summary }}</span>{% endif -%}
+  </li>
+{%- endfor %}
+</ul>
+{% endif %}
+
+{%- comment -%} 위로 가는 길 — 주소에서 한 단계 잘라낸다 {%- endcomment -%}
+{%- assign parts = page.url | split: "/" -%}
+{%- if parts.size > 2 -%}
+  {%- assign up = "" -%}
+  {%- for i in (1..parts.size) -%}
+    {%- if forloop.index < parts.size -%}
+      {%- assign up = up | append: "/" | append: parts[forloop.index] -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- assign up = up | append: "/" | replace: "//", "/" -%}
+<p class="notes-up"><a href="{{ up }}">← 위로</a></p>
+{%- endif %}
+
+<style>
+.notes-list{list-style:none;margin:1.4em 0 0;padding:0}
+.notes-list li{margin:.55em 0;line-height:1.5}
+.notes-mark{display:inline-block;width:1.5em;opacity:.75}
+.notes-list a{font-weight:500}
+.notes-desc{display:block;margin-left:1.5em;font-size:.85em;color:#6b6b6b}
+.notes-up{margin-top:2.2em;font-size:.9em}
+</style>
