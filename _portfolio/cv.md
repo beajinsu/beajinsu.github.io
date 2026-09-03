@@ -24,7 +24,7 @@ Work experience
 
 * **Korea Institute of Public Finance**,  2020 – 2024  
   * Associate Research Fellow
-  * Team Manager, Public Policy Team 2
+  * Team Manager, Public Policy Research Team 2
   * Team Manager, Fiscal System Analysis Team
 
 * **KEPCO Economy & Management Research Institute**, 2013 – 2014  
