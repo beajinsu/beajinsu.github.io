@@ -10,14 +10,14 @@ permalink: /kif/
 ---
 
 ### 연구보고서
-- [스테이블코인 확산이 카드 결제 비중에 미치는 영향(2026)](https://www.kif.re.kr/kif4/publication/pub_detail?&mid=10&nid=867&sid=867&vid=7708&cno=363243)
+- [스테이블코인 확산이 카드 결제 비중에 미치는 영향(2026)](https://www.kif.re.kr/kif4/publication/pub_detail?&mid=10&nid=867&sid=867&vid=7708&cno=363243) [[EN]](https://www.kif.re.kr/kif4/eng/publication/pub_detail?&mid=210&nid=869&sid=869&vid=7708&cno=363243)
 
 ### 논단
-- [가상자산 과세의 주요 쟁점과 해외사례 시사점(2026)](https://www.kif.re.kr/kif4/publication/pub_detail?mid=20&nid=190&sid=188&vid=7689&cno=362281&pn=1)
-- [지급결제수단으로서의 스테이블코인 활용 동향 및 시사점(2026)](https://www.kif.re.kr/kif4/publication/pub_detail?mid=20&nid=190&sid=188&vid=7638&cno=358633&pn=1)
+- [가상자산 과세의 주요 쟁점과 해외사례 시사점(2026)](https://www.kif.re.kr/kif4/publication/pub_detail?mid=20&nid=190&sid=188&vid=7689&cno=362281&pn=1) [[EN]](https://www.kif.re.kr/kif4/eng/publication/pub_detail?mid=220&nid=889&sid=887&vid=7720&cno=363586&pn=1)
+- [지급결제수단으로서의 스테이블코인 활용 동향 및 시사점(2026)](https://www.kif.re.kr/kif4/publication/pub_detail?mid=20&nid=190&sid=188&vid=7638&cno=358633&pn=1) [[EN]](https://www.kif.re.kr/kif4/eng/publication/pub_detail?mid=220&nid=889&sid=887&vid=7653&cno=359640&pn=1)
 - [신용카드 수수료 규제의 해외사례와 정책적 시사점(2025)](https://www.kif.re.kr/kif4/publication/pub_detail?mid=20&nid=190&sid=188&vid=7367&cno=344639&pn=1)
-- [녹색국채 발행의 글로벌 동향과 시사점(2025)](https://www.kif.re.kr/kif4/publication/pub_detail?mid=20&nid=189&sid=188&vid=7480&cno=350585&pn=1) [(영상보고서)](https://www.youtube.com/watch?v=l9lJOG6AbsM)
-- [스테이블코인이 조세 행정에 미치는 리스크와 대응방안(2025)](https://www.kif.re.kr/kif4/publication/pub_detail?mid=20&nid=190&sid=188&vid=7518&cno=352764&pn=1)
+- [녹색국채 발행의 글로벌 동향과 시사점(2025)](https://www.kif.re.kr/kif4/publication/pub_detail?mid=20&nid=189&sid=188&vid=7480&cno=350585&pn=1) [[EN]](https://www.kif.re.kr/kif4/eng/publication/pub_detail?mid=220&nid=888&sid=887&vid=7492&cno=351430&pn=1) [(영상보고서)](https://www.youtube.com/watch?v=l9lJOG6AbsM)
+- [스테이블코인이 조세 행정에 미치는 리스크와 대응방안(2025)](https://www.kif.re.kr/kif4/publication/pub_detail?mid=20&nid=190&sid=188&vid=7518&cno=352764&pn=1) [[EN]](https://www.kif.re.kr/kif4/eng/publication/pub_detail?mid=220&nid=889&sid=887&vid=7536&cno=353795&pn=1)
 
 ### 정책보고서 (수탁과제)
 - 청년층 금융여건 분석 및 개선방향(2025, 금융위), 공동연구자  
