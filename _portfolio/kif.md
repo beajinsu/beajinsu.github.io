@@ -26,5 +26,6 @@ permalink: /kif/
 - ASEAN+3 역내 국경간 결제 네트워크 구축방안 연구(2025, 기재부), 공동연구자
 
 ### 기타보고서
+- [지급결제 수단으로서의 스테이블코인의 가능성과 과제(2026), 컴플라이언스, 제67호(2026년 여름호), 준법감시협의회.](https://acof.krx.co.kr/board/ACO02020000/bbs#view=69)
 - [신용카드 수수료 규제의 해외사례와 정책적 시사점(2025), 여신금융, 2025년 봄호(통권81호).](https://www.crefia.or.kr/portal/infocenter/research/publication.xx)
 <!--  This is an item in your portfolio. It can be have images or nice text. If you name the file .md, it will be parsed as markdown. If you name the file .html, it will be parsed as HTML. -->
