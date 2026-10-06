@@ -13,6 +13,7 @@ permalink: /kif/
 - [스테이블코인 확산이 카드 결제 비중에 미치는 영향(2026)](https://www.kif.re.kr/kif4/publication/pub_detail?&mid=10&nid=867&sid=867&vid=7708&cno=363243) [[EN]](https://www.kif.re.kr/kif4/eng/publication/pub_detail?&mid=210&nid=869&sid=869&vid=7708&cno=363243)
 
 ### 논단
+- [급여선지급(EWA) 서비스의 해외 규제 동향과 시사점(2026)](https://www.kif.re.kr/kif4/publication/pub_detail?mid=20&nid=190&sid=188&vid=7783&cno=366974&pn=1)
 - [가상자산 과세의 주요 쟁점과 해외사례 시사점(2026)](https://www.kif.re.kr/kif4/publication/pub_detail?mid=20&nid=190&sid=188&vid=7689&cno=362281&pn=1) [[EN]](https://www.kif.re.kr/kif4/eng/publication/pub_detail?mid=220&nid=889&sid=887&vid=7720&cno=363586&pn=1)
 - [지급결제수단으로서의 스테이블코인 활용 동향 및 시사점(2026)](https://www.kif.re.kr/kif4/publication/pub_detail?mid=20&nid=190&sid=188&vid=7638&cno=358633&pn=1) [[EN]](https://www.kif.re.kr/kif4/eng/publication/pub_detail?mid=220&nid=889&sid=887&vid=7653&cno=359640&pn=1)
 - [신용카드 수수료 규제의 해외사례와 정책적 시사점(2025)](https://www.kif.re.kr/kif4/publication/pub_detail?mid=20&nid=190&sid=188&vid=7367&cno=344639&pn=1)
