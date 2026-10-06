@@ -187,6 +187,16 @@ days:
           - file: 2019-05-16-us-littlecolorado.jpg
             caption: "리틀 콜로라도"
 
+      - name: "페이지 · 늦은 점심"
+        time: "13:17"
+        lat: 36.90690
+        lon: -111.48020
+        map_query: "Page Arizona"
+        note: "협곡을 내려와 페이지에서 늦은 점심."
+        photos:
+          - file: 2019-05-16-us-page-lunch.jpg
+            caption: "국수와 튀김"
+
       - name: "홀스슈벤드"
         time: "15:02"
         lat: 36.87967
@@ -196,6 +206,8 @@ days:
         photos:
           - file: 2019-05-16-us-horseshoe.jpg
             caption: "홀스슈벤드"
+          - file: 2019-05-16-us-horseshoe-wide.jpg
+            caption: "말굽을 한 화면에"
           - file: 2019-05-16-us-horseshoe-sit.jpg
             caption: "벼랑 끝에서"
 
@@ -229,6 +241,17 @@ days:
           - file: 2019-05-16-us-jump.jpg
             caption: "빈 도로 위에서"
 
+      - name: "세인트조지 · 인앤아웃"
+        time: "22:58"
+        lat: 37.12780
+        lon: -113.52310
+        map_query: "In-N-Out Burger St George Utah"
+        note: "밤길을 달려 유타 세인트조지까지. 늦은 밤 인앤아웃."
+        photos:
+          - file: 2019-05-16-us-innout.jpg
+            caption: "밤의 인앤아웃"
+
+
   - date: 2019-05-24
     title: "콜럼버스로 복귀"
     summary: "여행은 여기까지. 어머니는 이후 한 달을 콜럼버스에서 함께 지내다 6월 말에 귀국하셨다."
@@ -239,5 +262,11 @@ days:
         lon: -115.13858
         map_query: "Las Vegas Airport"
         note:
-        photos: []
+        photos:
+          - file: 2019-05-16-us-las-tarmac.jpg
+            caption: "활주로 위 하늘"
+          - file: 2019-05-16-us-las-southwest.jpg
+            caption: "산을 등진 활주로"
+          - file: 2019-05-16-us-las-lunch.jpg
+            caption: "돌아가는 길의 한 끼"
 ---

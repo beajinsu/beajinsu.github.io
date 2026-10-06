@@ -96,7 +96,13 @@ days:
         lon: -118.40388
         map_query: "Beverly Hills"
         note:
-        photos: []
+        photos:
+          - file: 2024-07-05-us-beverly-figtree.jpg
+            caption: "뿌리가 담장을 넘어온 무화과나무"
+          - file: 2024-07-05-us-beverly-sign.jpg
+            caption: "연못 건너 BEVERLY HILLS 표지"
+          - file: 2024-07-05-us-beverly-palms.jpg
+            caption: "야자수가 늘어선 길"
 
       - name: "더 그로브 · 파머스마켓"
         time: "14:59"
@@ -124,7 +130,13 @@ days:
         lon: -118.32636
         map_query: "Hollywood"
         note:
-        photos: []
+        photos:
+          - file: 2024-07-05-us-hollywood-sign.jpg
+            caption: "언덕 위의 HOLLYWOOD"
+          - file: 2024-07-05-us-hollywood-sign2.jpg
+            caption: "조금 더 가까이"
+          - file: 2024-07-05-us-hollywood-hills.jpg
+            caption: "해 지는 할리우드힐스"
 
       - name: "그리피스 천문대"
         time: "20:14"
@@ -132,7 +144,15 @@ days:
         lon: -118.30023
         map_query: "Griffith Observatory"
         note: "밤의 LA를 내려다보며 하루를 닫았다."
-        photos: []
+        photos:
+          - file: 2024-07-05-us-griffith-orbit.jpg
+            caption: "바닥의 ORBIT OF EARTH"
+          - file: 2024-07-05-us-griffith-dome.jpg
+            caption: "돔 너머 LA"
+          - file: 2024-07-05-us-griffith-sunset.jpg
+            caption: "석양에 걸린 할리우드 사인"
+          - file: 2024-07-05-us-griffith-night.jpg
+            caption: "불이 켜진 LA"
 
   - date: 2024-07-07
     title: "콜럼버스로"
@@ -144,7 +164,13 @@ days:
         lon: -97.04510
         map_query: "DFW Airport"
         note: "새벽 환승."
-        photos: []
+        photos:
+          - file: 2024-07-05-us-dfw-lounge.jpg
+            caption: "라운지"
+          - file: 2024-07-05-us-dfw-breakfast.jpg
+            caption: "새벽 조식"
+          - file: 2024-07-05-us-dfw-gate.jpg
+            caption: "A9 게이트, 콜럼버스행"
 
       - name: "콜럼버스 (오하이오)"
         time: "20:46"
@@ -152,7 +178,15 @@ days:
         lon: -83.00759
         map_query: "Columbus Ohio"
         note:
-        photos: []
+        photos:
+          - file: 2024-07-05-us-columbus-bibibop.jpg
+            caption: "1778번지의 비비밥"
+          - file: 2024-07-05-us-columbus-arps.jpg
+            caption: "1945년의 Arps Hall"
+          - file: 2024-07-05-us-columbus-street.jpg
+            caption: "해 질 무렵의 교차로"
+          - file: 2024-07-05-us-columbus-donuts.jpg
+            caption: "벅아이 도넛"
 
   - date: 2024-07-08
     title: "오하이오주립대"
@@ -167,6 +201,8 @@ days:
           해질 무렵 오벌 잔디밭에 다시 갔다. 톰슨 도서관 안은 유리 서가가
           층층이 쌓여 그대로였다.
         photos:
+          - file: 2024-07-05-us-osu-stacks.jpg
+            caption: "층층이 쌓인 유리 서가"
           - file: 2024-07-05-us-osu-library.jpg
             caption: "톰슨 도서관"
 
@@ -176,7 +212,13 @@ days:
         lon: -83.00713
         map_query: "Columbus Ohio"
         note: "저녁까지 87장. 오래 머물렀다."
-        photos: []
+        photos:
+          - file: 2024-07-05-us-osu-window.jpg
+            caption: "유리창에 붙은 OHIO STATE"
+          - file: 2024-07-05-us-osu-barn.jpg
+            caption: "캠퍼스의 붉은 헛간"
+          - file: 2024-07-05-us-osu-library-banner.jpg
+            caption: "여러 나라 말로 쓴 환영 배너"
 
   - date: 2024-07-09
     title: "이리호를 따라 동쪽으로"
@@ -188,7 +230,13 @@ days:
         lon: -80.10800
         map_query: "Erie Pennsylvania"
         note: "호숫가에서 하룻밤."
-        photos: []
+        photos:
+          - file: 2024-07-05-us-erie-crowd.jpg
+            caption: "호숫가 야외무대"
+          - file: 2024-07-05-us-erie-lamp.jpg
+            caption: "물가의 가로등"
+          - file: 2024-07-05-us-erie-night.jpg
+            caption: "밤의 이리호"
 
   - date: 2024-07-10
     title: "나이아가라, 그리고 밤 버스"
@@ -217,10 +265,14 @@ days:
         lat: 42.88331
         lon: -78.87178
         map_query: "Buffalo New York"
-        note: "터미널에서 뉴욕행 심야 버스를 탔다. 새벽 네 시 반 펜실베이니아 어딘가를 지났다."
+        note: >
+          비행기가 취소됐다. 그래서 터미널에서 뉴욕행 심야 버스를 탔다.
+          새벽 네 시 반, 펜실베이니아 어딘가 편의점 앞에서 잠깐 섰다.
         photos:
           - file: 2024-07-05-us-bus-terminal.jpg
             caption: "밤의 터미널"
+          - file: 2024-07-05-us-bus-stop-night.jpg
+            caption: "새벽 네 시 반의 정차"
 
   - date: 2024-07-11
     title: "뉴욕 도착"
@@ -254,7 +306,31 @@ days:
         lon: -74.00418
         map_query: "Greenwich Village"
         note:
-        photos: []
+        photos:
+          - file: 2024-07-05-us-greenwich-brunch.jpg
+            caption: "늦은 아침"
+          - file: 2024-07-05-us-greenwich-bagels.jpg
+            caption: "PopUp Bagels 앞 줄"
+          - file: 2024-07-05-us-washingtonsquare.jpg
+            caption: "워싱턴스퀘어 아치"
+          - file: 2024-07-05-us-nyu.jpg
+            caption: "NYU 깃발이 걸린 거리"
+          - file: 2024-07-05-us-eileens.jpg
+            caption: "아일린스 치즈케이크"
+
+      - name: "리처드 로저스 극장 · 해밀턴"
+        time: "21:49"
+        lat: 40.759198
+        lon: -73.986742
+        map_query: "Richard Rodgers Theatre"
+        note: >
+          도착한 날 밤에 브로드웨이. 나무로 짠 이층 무대가 계속 돌아갔다.
+          끝나고 나와 타임스스퀘어를 가로질러 걸어 돌아왔다.
+        photos:
+          - file: 2024-07-05-us-hamilton-stage.jpg
+            caption: "커튼콜"
+          - file: 2024-07-05-us-shubert.jpg
+            caption: "돌아오는 길, 슈버트 극장 앞"
 
   - date: 2024-07-12
     title: "센트럴파크, 그리고 유람선"
@@ -266,7 +342,35 @@ days:
         lon: -73.97353
         map_query: "Central Park"
         note: "한 시간에 85장."
-        photos: []
+        photos:
+          - file: 2024-07-05-us-cp-skyline.jpg
+            caption: "바위에 올라서니 나무 너머로 마천루가 섰다"
+          - file: 2024-07-05-us-cp-bethesda-terrace.jpg
+            caption: "베데스다 테라스"
+          - file: 2024-07-05-us-cp-bethesda-fountain.jpg
+            caption: "천사가 선 분수"
+          - file: 2024-07-05-us-cp-lakeside.jpg
+            caption: "호숫가에 앉은 사람들"
+          - file: 2024-07-05-us-cp-ducks.jpg
+            caption: "물 위의 오리들"
+          - file: 2024-07-05-us-cp-tree.jpg
+            caption: "잔디밭의 큰 나무"
+          - file: 2024-07-05-us-cp-sanremo.jpg
+            caption: "호수 건너 산레모의 쌍둥이 탑"
+          - file: 2024-07-05-us-cp-bench.jpg
+            caption: "공원 벤치가 늘어선 길"
+
+      - name: "사라베스"
+        time: "11:06"
+        lat: 40.765043
+        lon: -73.975606
+        map_query: "Sarabeth's Central Park South"
+        note: "공원에서 나와 늦은 아침. 에그 베네딕트."
+        photos:
+          - file: 2024-07-05-us-sarabeths-table.jpg
+            caption: "메뉴판이 놓인 자리"
+          - file: 2024-07-05-us-sarabeths-benedict.jpg
+            caption: "에그 베네딕트"
 
       - name: "허드슨강 유람선"
         time: "15:21"
@@ -346,5 +450,9 @@ days:
         lon: -97.04363
         map_query: "DFW Airport"
         note:
-        photos: []
+        photos:
+          - file: 2024-07-05-us-dfw-return-hall.jpg
+            caption: "환승 라운지로 가는 복도"
+          - file: 2024-07-05-us-dfw-return-breakfast.jpg
+            caption: "마지막 아침"
 ---
