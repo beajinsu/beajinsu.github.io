@@ -279,6 +279,7 @@ defaults:
       type: travels
     values:
       layout: travel
+      sitemap: false   # 본인용 보관함. 메뉴·검색에서 뺀다 (2026-10-19)
   # _notes
   - scope:
       path: ""
