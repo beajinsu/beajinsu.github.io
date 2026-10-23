@@ -35,11 +35,11 @@
   {% if post.venue %}
     <div>
       <em style="font-size:1rem;">{{ post.venue }}</em>
-      {% if show_date %}
+      {% if show_date and show_date != "" %}
         , {{ show_date }}
       {% endif %}
     </div>
-  {% elsif show_date %}
+  {% elsif show_date and show_date != "" %}
     <div>{{ show_date }}</div>
   {% endif %}
 

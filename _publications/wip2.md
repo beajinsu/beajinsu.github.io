@@ -1,5 +1,5 @@
 ---
-title: "The Economic Consequences of SME-Only Competition in Public Procurement: Evidence from South Korea"
+title: "Small Business Set-Asides and Public Procurement Prices: Evidence from Korea's SME Competition Products"
 collection: publications
 category: works_in_progress
 permalink: /wip2
